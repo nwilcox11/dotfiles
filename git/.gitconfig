@@ -1,0 +1,10 @@
+[user]
+	email = wilcox.nicholas.m@gmail.com
+	name = nwilcox11
+[color]
+	ui = true
+[core]
+	excludesfile = /Users/nickwilcox/.gitignore
+	editor = vim
+[pull]
+	rebase = true
