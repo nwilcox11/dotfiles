@@ -70,6 +70,18 @@ if filereadable(expand("~/.vimrc_background"))
 	source ~/.vimrc_background
 endif
 
+" Lightline
+set laststatus=2
+set noshowmode
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ },
+\ }
+function! LightlineFilename()
+  return expand('%:t') !=# '' ? @% : '[No Name]'
+endfunction
+
 "GO syntax 
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_types = 1
