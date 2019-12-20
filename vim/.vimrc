@@ -82,22 +82,42 @@ function! LightlineFilename()
   return expand('%:t') !=# '' ? @% : '[No Name]'
 endfunction
 
-"GO syntax 
+" Completion
+" ==========================================
+" Better display messages
+set cmdheight=2
+set updatetime=300
+" don't give |ins-completion-menu| messages
+set shortmess+=c
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" GO syntax 
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_types = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_function_parameters = 0
 let g:go_fmt_autosave = 0 "GoFmt command will manually reformat
 
-"fuzzy search
+" fuzzy search
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " # linting
 " ==========================================
-let b:ale_linters = {'javascript': ['prettier', 'eslint']}
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
+"let b:ale_linters = {'javascript': ['prettier', 'eslint']}
+"let g:ale_sign_error = '✘'
+"let g:ale_sign_warning = '⚠'
 
 " # Prettier
 " ==========================================
