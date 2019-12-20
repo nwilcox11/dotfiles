@@ -64,7 +64,7 @@ let g:ctrlp_cmd = 'CtrlP'
 " current colors base16_gruvbox-dark-hard
 " previous colors base16_onedark
 set background=dark
-set termguicolors
+"set termguicolors
 if filereadable(expand("~/.vimrc_background"))
 	let base16colorspace = 256
 	source ~/.vimrc_background
