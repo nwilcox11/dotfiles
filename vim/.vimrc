@@ -109,6 +109,9 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_function_parameters = 0
 let g:go_fmt_autosave = 0 "GoFmt command will manually reformat
 
+" rust syntax
+let g:rustfmt_autosave = 1
+
 " fuzzy search
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
