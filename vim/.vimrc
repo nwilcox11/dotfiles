@@ -64,7 +64,7 @@ let g:ctrlp_cmd = 'CtrlP'
 " current colors base16_gruvbox-dark-hard
 " previous colors base16_onedark
 set background=dark
-"set termguicolors
+set termguicolors
 if filereadable(expand("~/.vimrc_background"))
 	let base16colorspace = 256
 	source ~/.vimrc_background
@@ -112,6 +112,14 @@ let g:go_fmt_autosave = 0 "GoFmt command will manually reformat
 " rust syntax
 let g:rustfmt_autosave = 1
 
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+
 " fuzzy search
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -125,14 +133,14 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " # Prettier
 " ==========================================
 " Don't use vim-prettier's auto formatting
-let g:prettier#autoformat=0
+" let g:prettier#autoformat=0
 " Make vim-prettier use prettier defaults
-let g:prettier#config#bracket_spacing="true"
-let g:prettier#config#jsx_bracket_same_line="false"
-let g:prettier#config#parser="babylon"
-let g:prettier#config#single_quote="true"
-let g:prettier#config#trailing_comma="none"
+" let g:prettier#config#bracket_spacing="true"
+" let g:prettier#config#jsx_bracket_same_line="false"
+" let g:prettier#config#parser="babylon"
+" let g:prettier#config#single_quote="true"
+" let g:prettier#config#trailing_comma="none"
 " Run Prettier before saving
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.json,*.graphql,*.md PrettierAsync
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.json,*.graphql,*.md PrettierAsync
 " Set syntax highlighting for secific file types
 autocmd BufRead,BufNewFile *.md set filetype=markdown
