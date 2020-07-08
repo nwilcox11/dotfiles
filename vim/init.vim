@@ -1,0 +1,1 @@
+/Users/nickwilcox/.vimrc
