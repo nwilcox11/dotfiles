@@ -9,6 +9,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 " Colorschemes
 Plug 'gruvbox-community/gruvbox'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 "## # Editor Settings
@@ -45,7 +46,7 @@ set relativenumber
 set ruler
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-set mouse=n
+set mouse=a
 " # Keyboard Mappings
 " ========================================
 let mapleader = " "
