@@ -1,12 +1,13 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+" Neovim lsp Plugins
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 " Colorschemes
 Plug 'gruvbox-community/gruvbox'
 Plug 'ayu-theme/ayu-vim'
@@ -61,12 +62,7 @@ nnoremap <silent> <leader>pf :Files<CR>
 nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
 inoremap <silent> <C-c> <esc>
-"GoTo code navigation Coc.
-nmap <silent> <leader>gd <Plug>(coc-definition)
-nmap <silent> <leader>gy <Plug>(coc-type-definition)
-nmap <silent> <leader>gi <Plug>(coc-implementation)
-nmap <silent> <leader>gr <Plug>(coc-references)
-nnoremap <silent> <leader>cr :CocRestart
+
 "git
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
@@ -82,19 +78,23 @@ let g:netrw_winsize = 20
 " ========================================
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_invert_selection = '0'
-colorscheme gruvbox
+"colorscheme gruvbox
+let ayucolor="dark"
+colorscheme ayu
 set background=dark
-" Lightline
-set laststatus=2
-set noshowmode
-let g:lightline = {
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \ },
-\ }
-function! LightlineFilename()
-  return expand('%:t') !=# '' ? @% : '[No Name]'
-endfunction
+" neovim lsp
+set completeopt=menuone,noinsert,noselect
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
+lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
+lua require'lspconfig'.clangd.setup{ on_attach=require'completion'.on_attach }
+" neovim lsp
+nnoremap <leader>va :lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
+nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
+
 " Better display messages
 set cmdheight=2
 set updatetime=50
