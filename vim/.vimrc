@@ -100,13 +100,6 @@ set cmdheight=2
 set updatetime=50
 " don't give |ins-completion-menu| messages
 set shortmess+=c
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 if executable('rg')
     let g:rg_derive_root='true'
@@ -128,7 +121,5 @@ fun! TrimWhitespace()
   keeppatterns %s/\s\+$//e
   call winrestview(l:save)
 endfun
-
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 autocmd BufWritePre * :call TrimWhitespace()
