@@ -85,6 +85,11 @@ set background=dark
 " neovim lsp
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+" Better display messages
+set cmdheight=2
+set updatetime=50
+" don't give |ins-completion-menu| messages
+set shortmess+=c
 
 lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
 lua require'lspconfig'.clangd.setup{ on_attach=require'completion'.on_attach }
@@ -95,11 +100,9 @@ nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
 
-" Better display messages
-set cmdheight=2
-set updatetime=50
-" don't give |ins-completion-menu| messages
-set shortmess+=c
+"Fzf layout setup
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
 
 if executable('rg')
     let g:rg_derive_root='true'
