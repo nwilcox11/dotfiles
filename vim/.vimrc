@@ -11,6 +11,8 @@ Plug 'nvim-lua/completion-nvim'
 " Colorschemes
 Plug 'gruvbox-community/gruvbox'
 Plug 'ayu-theme/ayu-vim'
+Plug 'tjdevries/colorbuddy.vim'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 "## # Editor Settings
@@ -48,6 +50,12 @@ set ruler
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 set mouse=a
+" Better display messages
+set cmdheight=1
+set updatetime=1000
+" don't give |ins-completion-menu| messages as you type.
+set shortmess+=c
+
 " # Keyboard Mappings
 " ========================================
 let mapleader = " "
@@ -71,34 +79,29 @@ nmap <leader>gs :G<CR>
 
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
+
 let g:netrw_browse_split =2
 let g:netrw_banner = 0
 let g:netrw_winsize = 20
 " # Colors
 " ========================================
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_invert_selection = '0'
-"colorscheme gruvbox
-let ayucolor="dark"
-colorscheme ayu
 set background=dark
+colorscheme onedark
+
 " neovim lsp
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-" Better display messages
-set cmdheight=2
-set updatetime=50
-" don't give |ins-completion-menu| messages
-set shortmess+=c
+let g:completion_enable_auto_signature = 0
 
 lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
 lua require'lspconfig'.clangd.setup{ on_attach=require'completion'.on_attach }
-" neovim lsp
+
 nnoremap <leader>va :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
+nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
 
 "Fzf layout setup
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
