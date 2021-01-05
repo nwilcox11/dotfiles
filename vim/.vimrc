@@ -65,13 +65,7 @@ nnoremap <silent> <leader>l :wincmd l<CR>
 nnoremap <silent> <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>noremap <C-c> <esc>
 nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
-inoremap <silent> <C-c> <esc>
-
-"git
-nmap <leader>gh :diffget //3<CR>
-nmap <leader>gu :diffget //2<CR>
-"git status
-nmap <leader>gs :G<CR>
+nnoremap <silent> <C-c> <esc>
 
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
@@ -102,10 +96,29 @@ nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
 " Search -- (requires ripgrep, fzf)
 nnoremap <silent><leader>fg :Rg<CR>
 nnoremap <silent><leader>ff :Files<CR>
+nnoremap <silent><leader>fh :Helptags<CR>
+nnoremap <silent><leader>fb :Buffers<CR>
+nnoremap <silent><leader>gs :GFiles?<CR>
+nnoremap <silent><leader>gl :Commits<CR>
 
 "Fzf layout setup
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
+"Fzf to current colorscheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 if executable('rg')
     let g:rg_derive_root='true'
