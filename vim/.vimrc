@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 " Neovim lsp Plugins
 Plug 'neovim/nvim-lspconfig'
@@ -11,7 +10,6 @@ Plug 'nvim-lua/completion-nvim'
 " Colorschemes
 Plug 'gruvbox-community/gruvbox'
 Plug 'ayu-theme/ayu-vim'
-Plug 'tjdevries/colorbuddy.vim'
 Plug 'joshdick/onedark.vim'
 
 call plug#end()
@@ -65,8 +63,6 @@ nnoremap <silent> <leader>j :wincmd j<CR>
 nnoremap <silent> <leader>k :wincmd k<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
 nnoremap <silent> <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>noremap <C-c> <esc>
-nnoremap <leader>ps :Rg<SPACE>
-nnoremap <silent> <leader>pf :Files<CR>
 nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
 inoremap <silent> <C-c> <esc>
@@ -102,6 +98,10 @@ nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
+
+" Search -- (requires ripgrep, fzf)
+nnoremap <silent><leader>fg :Rg<CR>
+nnoremap <silent><leader>ff :Files<CR>
 
 "Fzf layout setup
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
