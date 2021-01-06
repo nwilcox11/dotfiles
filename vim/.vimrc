@@ -65,6 +65,8 @@ nnoremap <silent> <leader>l :wincmd l<CR>
 nnoremap <silent> <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>noremap <C-c> <esc>
 nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
+
+inoremap <silent> <C-c> <esc>
 nnoremap <silent> <C-c> <esc>
 
 autocmd InsertEnter * set cul
