@@ -75,12 +75,13 @@ autocmd InsertLeave * set nocul
 let g:netrw_browse_split =2
 let g:netrw_banner = 0
 let g:netrw_winsize = 20
-" # Colors
+
+"# Colors
 " ========================================
 set background=dark
 colorscheme onedark
 
-" neovim lsp
+"neovim lsp
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_enable_auto_signature = 0
@@ -95,7 +96,7 @@ nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
 
-" Search -- (requires ripgrep, fzf)
+"Search -- (requires ripgrep, fzf)
 nnoremap <silent><leader>fg :Rg<CR>
 nnoremap <silent><leader>ff :Files<CR>
 nnoremap <silent><leader>fh :Helptags<CR>
@@ -103,10 +104,16 @@ nnoremap <silent><leader>fb :Buffers<CR>
 nnoremap <silent><leader>gs :GFiles?<CR>
 nnoremap <silent><leader>gl :Commits<CR>
 
-"Fzf layout setup
+"neovim tabs
+nnoremap <leader>tk :tabnext<CR>
+nnoremap <leader>tj :tabprevious<CR>
+nnoremap <leader>tc :tabclose<CR>
+
+"fzf layout setup
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
-"Fzf to current colorscheme
+
+"fzf to current colorscheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -130,6 +137,7 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
 " GO syntax
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_types = 1
