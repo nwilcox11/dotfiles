@@ -19,6 +19,8 @@ set PATH /usr/local/psql/bin $PATH
 set PATH /usr/local/var/postgres/data $PATH
 # clangd lsp
 set PATH /usr/local/opt/llvm/bin $PATH
+# gopls lsp
+set PATH /$HOME/go/bin/ $PATH
 
 function fish_prompt
 	set_color brblack

@@ -88,6 +88,7 @@ let g:completion_enable_auto_signature = 0
 
 lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
 lua require'lspconfig'.clangd.setup{ on_attach=require'completion'.on_attach }
+lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
 
 nnoremap <leader>va :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
