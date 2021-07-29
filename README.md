@@ -1,5 +1,5 @@
 # dotfiles
----
+
 ## Neovim setup
 
 Requires Neovim >= 0.5
