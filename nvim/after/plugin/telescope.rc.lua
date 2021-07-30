@@ -41,8 +41,8 @@ if has_tscope then
     }
 
     local opts = { silent = true, noremap = true }
-    vim.api.nvim_set_keymap("n", ";f", "<Cmd>Telescope find_files<CR>", opts)
-    vim.api.nvim_set_keymap("n", ";r", "<Cmd>Telescope live_grep<CR>", opts)
-    vim.api.nvim_set_keymap("n", ";ls", "<Cmd>Telescope buffers<CR>", opts)
-    vim.api.nvim_set_keymap("n", ";;", "<Cmd>Telescope help_tags<CR>", opts)
+    vim.api.nvim_set_keymap("n", "ff", "<Cmd>Telescope find_files<CR>", opts)
+    vim.api.nvim_set_keymap("n", "fg", "<Cmd>Telescope live_grep<CR>", opts)
+    vim.api.nvim_set_keymap("n", "fb", "<Cmd>Telescope buffers<CR>", opts)
+    vim.api.nvim_set_keymap("n", "fh", "<Cmd>Telescope help_tags<CR>", opts)
 end
