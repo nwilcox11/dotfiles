@@ -14,7 +14,7 @@ if has_lualine then
             lualine_b = { 'branch' },
             lualine_c = { 'filename' },
             lualine_x = {
-                { 'diagnostics', sources = {"nvim_lsp"}, symbols = {error = 'E ', warn = 'W ', info = 'I ', hint = 'H '} },
+                { 'diagnostics', sources = {"nvim_lsp"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
                 'encoding',
                 'filetype'
             },

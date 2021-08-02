@@ -6,6 +6,7 @@ if has_ts then
             "typescript",
             "tsx",
             "go",
+			"lua",
             "rust",
             "python",
             "c",
@@ -13,17 +14,17 @@ if has_ts then
             "fish",
             "json",
             "html",
-            "css"
+            "css",
         },
-
+	additional_vim_regex_highlighting = false,
         highlight = {
-            enable = false,
-            disable = {"json"},
+            enable = true,
+            disable = {},
         },
 
         indent = {
-            enable = false,
-            disable = {}
+            enable = true,
+            disable = { "typescript", "python" }
         },
     }
 end

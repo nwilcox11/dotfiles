@@ -1,20 +1,14 @@
-let mapleader = " "
-set path+=**
-
-"File Tree
-let g:netrw_browse_split =2
-let g:netrw_banner = 0
-let g:netrw_winsize = 20
-
-"Settings
+source $HOME/.config/nvim/plug.vim
 lua require("settings")
-"Plugins
-runtime ./plug.vim
-"Mappings
 lua require("maps")
 
-"Color
-colorscheme onedark
+syntax on
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+
+set path+=**
 
 fun! TrimWhitespace()
   let l:save = winsaveview()
