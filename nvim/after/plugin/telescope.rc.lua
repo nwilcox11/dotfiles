@@ -19,9 +19,6 @@ if has_tscope then
 		pickers = {
 			find_files = {
 				theme = "ivy",
-				layout_config = {
-					width = 0.65
-				}
 			},
 			live_grep = {
 				theme = "ivy",
@@ -54,6 +51,15 @@ if has_tscope then
 				theme = "dropdown",
 				previewer = false,
 			}
+		},
+		extensions = {
+			fzf = {
+				fuzzy = true,
+				override_file_sorter = true,
+			},
+			fzf_writer = {
+				use_highlighter = false
+			}
 		}
 	}
 
@@ -61,8 +67,20 @@ if has_tscope then
 
 	local opts = { silent = true, noremap = true }
 
-	vim.api.nvim_set_keymap("n", "<Leader>ff", "<Cmd> Telescope find_files<CR>", opts)
-	vim.api.nvim_set_keymap("n", "<Leader>ga", "<Cmd> Telescope live_grep<CR>", opts)
+	-- staged grep
+	vim.api.nvim_set_keymap(
+		"n",
+		"<Leader>ga",
+		":lua require('telescope').extensions.fzf_writer.staged_grep(require('telescope.themes').get_ivy())<CR>",
+		opts
+	)
+	-- find files
+	vim.api.nvim_set_keymap(
+		"n",
+		"<Leader>ff",
+		":lua require('telescope').extensions.fzf_writer.files(require('telescope.themes').get_ivy())<CR>",
+		opts
+	)
 
 	-- Seems to be a bug sending to quick fix list from here. (Only provides the directory of list item)
 	vim.api.nvim_set_keymap("n", "<Leader>ds", "<Cmd> Telescope lsp_workspace_diagnostics<CR>", opts)
