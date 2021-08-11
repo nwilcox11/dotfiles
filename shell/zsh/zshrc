@@ -1,0 +1,23 @@
+export XDG_CONFIG_HOME=$HOME/.config/
+
+source $HOME/antigen.zsh
+antigen bundle 'zsh-users/zsh-syntax-highlighting'
+antigen bundle 'zsh-users/zsh-autosuggestions'
+antigen apply
+autoload -U promptinit; promptinit
+
+zstyle :prompt:pure:path color '#EAEAEA'
+zstyle :prompt:pure:prompt:success color '#0076FF' # Blue
+zstyle :prompt:pure:prompt:error color '#FF1A1A' # Red
+zstyle :prompt:pure:execution_time color '#F7B955' # Yellow
+zstyle :prompt:pure:git:dirty color '#FF0080' # Highligt - Alert
+zstyle :prompt:pure:git:branch color '#F7B955'
+zstyle :prompt:pure:git:stash show yes
+
+prompt pure
+
+alias ll='ls -lG'
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/nicholaswilcox/.sdkman"
+[[ -s "/Users/nicholaswilcox/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/nicholaswilcox/.sdkman/bin/sdkman-init.sh"

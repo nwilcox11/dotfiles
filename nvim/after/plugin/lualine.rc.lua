@@ -4,9 +4,9 @@ if has_lualine then
     lualine.setup {
         options = {
             icons_enabled = true,
-            theme = 'onedark',
-            section_separators = {'', ''},
-            component_separators = {'', ''},
+			section_separators = {'', ''},
+			component_separators = {'', ''},
+			theme = 'codedark',
             disabled_filetypes = {}
         },
         sections = {

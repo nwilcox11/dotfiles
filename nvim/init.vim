@@ -10,6 +10,8 @@ set noexpandtab
 
 set path+=**
 
+colorscheme codedark
+
 fun! TrimWhitespace()
   let l:save = winsaveview()
   keeppatterns %s/\s\+$//e

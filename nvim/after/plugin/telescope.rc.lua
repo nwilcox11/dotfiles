@@ -13,6 +13,7 @@ if has_tscope then
 				"node_modules",
 				"package-lock.json",
 				"sum",
+				"plugged"
 			},
 			dynamic_preview_title = true
 		},
@@ -63,7 +64,7 @@ if has_tscope then
 		}
 	}
 
-	tscope.load_extension("fzf")
+ 	tscope.load_extension("fzf")
 
 	local opts = { silent = true, noremap = true }
 
@@ -74,6 +75,7 @@ if has_tscope then
 		":lua require('telescope').extensions.fzf_writer.staged_grep(require('telescope.themes').get_ivy())<CR>",
 		opts
 	)
+
 	-- find files
 	vim.api.nvim_set_keymap(
 		"n",
@@ -81,6 +83,20 @@ if has_tscope then
 		":lua require('telescope').extensions.fzf_writer.files(require('telescope.themes').get_ivy())<CR>",
 		opts
 	)
+
+	--vim.api.nvim_set_keymap(
+	--	"n",
+	--	"<Leader>ff",
+	--	"<Cmd> Telescope find_files<CR>",
+	--	opts
+	--)
+
+	--vim.api.nvim_set_keymap(
+	--	"n",
+	--	"<Leader>ga",
+	--	"<Cmd> Telescope live_grep<CR>",
+	--	opts
+	--)
 
 	-- Seems to be a bug sending to quick fix list from here. (Only provides the directory of list item)
 	vim.api.nvim_set_keymap("n", "<Leader>ds", "<Cmd> Telescope lsp_workspace_diagnostics<CR>", opts)

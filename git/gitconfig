@@ -1,10 +1,12 @@
 [user]
 	email = wilcox.nicholas.m@gmail.com
 	name = nwilcox11
+[includeIf "gitdif:~/azdo/"]
+	path = ~/azdo/.gitconfig
 [color]
 	ui = true
 [core]
 	excludesfile = /Users/nickwilcox/.gitignore
-	editor = vim
+	editor = nvim
 [pull]
 	rebase = true

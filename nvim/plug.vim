@@ -1,8 +1,7 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
     "Lsp
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-    "Plug 'nvim-lua/completion-nvim'
     Plug 'hrsh7th/nvim-compe'
     "Telescope
     Plug 'nvim-lua/popup.nvim'
@@ -16,6 +15,7 @@ call plug#begin('~/.vim/plugged')
     "Colorschemes
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'navarasu/onedark.nvim'
+	Plug 'tomasiser/vim-code-dark'
     "Plug 'joshdick/onedark.vim'
     "Status Line
     Plug 'hoob3rt/lualine.nvim'
