@@ -8,6 +8,9 @@ Requires Neovim >= 0.5
 
 * [vim-plug](https://github.com/junegunn/vim-plug) - Plugin manager.
 * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - Configure Neovim's LSP.
+	* [tsserver](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#tsserver)
+	* [disagnosticls](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#diagnosticls)
+		* [Prettier](https://prettier.io/docs/en/install.html)
 * [nvim-telescope](https://github.com/nvim-telescope/telescope.nvim) - Fuzzy finder.
     * Telescope Extensions:
     	* [nvim-telescope-fzf-native](nvim-telescope/telescope-fzf-native.nvim) - FZF sorter for telescope written in c.
