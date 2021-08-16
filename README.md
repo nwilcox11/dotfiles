@@ -1,11 +1,8 @@
 # dotfiles
 Always a work in progress.
 
-## Neovim setup
-
-Requires Neovim >= 0.5
+## Neovim setup (Neovim >= 0.5)
 * [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
-
 * [vim-plug](https://github.com/junegunn/vim-plug) - Plugin manager.
 * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - Configure Neovim's LSP.
 	* [tsserver](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#tsserver)
@@ -19,9 +16,8 @@ Requires Neovim >= 0.5
 * [nvim-compe](https://github.com/hrsh7th/nvim-compe) - Auto completion framework using Neovim's LSP.
 
 ## Shell setup
-
 * [Iterm2](https://iterm2.com/documentation.html)
-    * [Font](https://www.nerdfonts.com/font-downloads) - Source Code Pro
+	* [Font](https://www.nerdfonts.com/font-downloads) - Source Code Pro
 * [Zsh](https://zsh.sourceforge.io/Doc/Release/zsh_toc.html#SEC_Contents) - zsh
 	* [Pure-prompt](https://github.com/sindresorhus/pure#getting-started) - Simple command line prompt
 * [Fzf](https://github.com/junegunn/fzf)
