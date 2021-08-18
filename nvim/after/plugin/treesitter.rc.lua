@@ -4,6 +4,7 @@ if has_ts then
     ts.setup {
         ensure_installed = {
             "typescript",
+			"javascript",
             "tsx",
             "go",
 			"lua",
