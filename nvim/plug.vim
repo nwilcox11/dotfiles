@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
     "Colorschemes
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'navarasu/onedark.nvim'
-    "Plug 'joshdick/onedark.vim'
+	Plug 'tomasiser/vim-code-dark'
     "Status Line
     Plug 'hoob3rt/lualine.nvim'
 call plug#end()

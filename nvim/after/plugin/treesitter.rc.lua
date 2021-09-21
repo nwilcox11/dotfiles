@@ -14,7 +14,7 @@ if has_ts then
             "fish",
             "json",
             "html",
-            "css",
+            "css"
         },
 	additional_vim_regex_highlighting = false,
         highlight = {

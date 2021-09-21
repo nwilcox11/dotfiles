@@ -37,9 +37,6 @@ vim.opt.swapfile = false
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.g.onedark_style = "warm"
-require'onedark'.setup()
-
 --vim.opt.tabstop = 4 -- Number of spaces that a tab in a file accounts for.
 --vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of autoindent
 --vim.opt.softtabstop = 4

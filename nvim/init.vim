@@ -6,7 +6,9 @@ syntax on
 filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
+
+colorscheme codedark
 
 set path+=**
 

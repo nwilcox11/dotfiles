@@ -58,7 +58,7 @@ if has_tscope then
 				override_file_sorter = true,
 			},
 			fzf_writer = {
-				use_highlighter = false
+				use_highlighter = true
 			}
 		}
 	}
@@ -91,5 +91,5 @@ if has_tscope then
 
 	vim.api.nvim_set_keymap("n", "<Leader>pv", "<Cmd> Telescope file_browser<CR>", opts)
 
-	vim.api.nvim_set_keymap("n", "<Leader>ht", "<Cmd> Telescope help_tags<CR>", opts)
+	vim.api.nvim_set_keymap("n", "<Leader>;;", "<Cmd> Telescope help_tags<CR>", opts)
 end
