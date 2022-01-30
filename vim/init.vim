@@ -13,39 +13,40 @@ Plug 'gruvbox-community/gruvbox'
 call plug#end()
 "## # Editor Settings
 " =======================================
-syntax on
-filetype plugin indent on
-set guicursor=
-set noshowmatch
-set nohlsearch
-set encoding=utf-8
-set smartindent
-set hidden
-set nowrap
-set nobackup
-set noswapfile
-set numberwidth=3
-set signcolumn=yes
-set visualbell
-set noerrorbells
-set clipboard=unnamed
-set undodir=~/.vim/undodir
-set undofile
-set termguicolors
-set scrolloff=8
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set incsearch
-set ignorecase
-set smartcase
-set hlsearch
-set number
-set relativenumber
-set ruler
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-set mouse=n
+"
+"syntax on
+"filetype plugin indent on
+"set guicursor=
+"set noshowmatch
+"set nohlsearch
+"set encoding=utf-8
+"set smartindent
+"set hidden
+"set nowrap
+"set nobackup
+"set noswapfile
+"set numberwidth=3
+"set signcolumn=yes
+"set visualbell
+"set noerrorbells
+"set clipboard=unnamed
+"set undodir=~/.vim/undodir
+"set undofile
+"set termguicolors
+"set scrolloff=8
+"set tabstop=2
+"set shiftwidth=2
+"set expandtab
+"set incsearch
+"set ignorecase
+"set smartcase
+"set hlsearch
+"set number
+"set relativenumber
+"set ruler
+"set colorcolumn=80
+"highlight ColorColumn ctermbg=0 guibg=lightgrey
+"set mouse=n
 " # Keyboard Mappings
 " ========================================
 let mapleader = " "
@@ -81,7 +82,7 @@ let g:netrw_winsize = 20
 " ========================================
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_invert_selection = '0'
-colorscheme gruvbox
+"colorscheme gruvbox
 set background=dark
 " Lightline
 set laststatus=2
