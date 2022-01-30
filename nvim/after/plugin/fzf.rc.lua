@@ -26,6 +26,6 @@ vim.g.fzf_colors = {
 	["header"] = {"fg", "Comment" }
 }
 
---local opts = { silent = true }
---vim.api.nvim_set_keymap("n", "<Leader>ff", ":Files<CR>", opts)
---vim.api.nvim_set_keymap("n", "<Leader>fg", ":Rg<CR>", opts)
+-- local opts = { silent = true }
+-- vim.api.nvim_set_keymap("n", "<Leader>ff", ":Files<CR>", opts)
+-- vim.api.nvim_set_keymap("n", "<Leader>fg", ":Rg<CR>", opts)
