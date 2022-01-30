@@ -14,11 +14,7 @@ if has_lsp then
         buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
         buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
 
-		-- Using telescope with quickfix list to read diagnostics for now...
-		--
-		-- buf_set_keymap("n", "di", "<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-		-- buf_set_keymap("n", "[d", "<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-		-- buf_set_keymap("n", "]d", "<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+       buf_set_keymap("n", "<Leader>di", "<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
 
         -- format on save.
         if client.resolved_capabilities.document_formatting then
@@ -45,31 +41,31 @@ if has_lsp then
     }
 
     lsp.diagnosticls.setup {
-		on_attach = on_attach,
-		filetypes = {
-		  "typescript",
-		  "typescriptreact",
-		  "typescript.tsx",
-		  "javascript",
-		  "javascriptreact",
-		  "css",
-		  "html",
-		  "markdown"
-		},
-		init_options = {
-			formatters = {
-				prettier = {
-					command = "prettier",
-					args = { "--stdin-filepath", "%filename" },
-				},
-			},
-			formatFiletypes = {
-				typescript = "prettier",
-				typescriptreact = "prettier",
-				javascript = "prettier",
-				javascriptreact = "prettier",
-			}
-		},
+      on_attach = on_attach,
+      filetypes = {
+        -- "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+        "javascript",
+        "javascriptreact",
+        "css",
+        "html",
+        "markdown"
+      },
+      init_options = {
+        formatters = {
+          prettier = {
+            command = "prettier",
+            args = { "--stdin-filepath", "%filename" },
+          },
+        },
+        formatFiletypes = {
+          typescript = "prettier",
+          typescriptreact = "prettier",
+          javascript = "prettier",
+          javascriptreact = "prettier",
+        }
+      },
     }
 
 	lsp.clangd.setup { on_attach = on_attach }
