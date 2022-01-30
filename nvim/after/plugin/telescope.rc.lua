@@ -2,94 +2,61 @@ local has_tscope, tscope = pcall(require, "telescope")
 local actions = require'telescope.actions'
 
 if has_tscope then
-	tscope.setup {
-		defaults = {
-			prompt_prefix = "❯ ",
-			selection_caret = "❯ ",
-			layout_strategy = "flex",
-			scroll_strategy = "cycle",
-			color_devicons = true,
-			file_ignore_patterns = {
-				"node_modules",
-				"package-lock.json",
-				"sum",
-			},
-			dynamic_preview_title = true
-		},
-		pickers = {
-			find_files = {
-				theme = "ivy",
-			},
-			live_grep = {
-				theme = "ivy",
-			},
-			grep_string = {
-				theme = "ivy",
-			},
-			current_buffer_fuzzy_find = {
-				theme = "ivy",
-			},
-			lsp_workspace_diagnostics = {
-				theme = "ivy"
-			},
-			buffers = {
-				theme = "ivy",
-				sort_lastused = true,
-				mappings = {
-					i = {
-						["<c-d>"] = actions.delete_buffer
-					}
-				}
-			},
-			git_files = {
-				theme = "ivy"
-			},
-			file_browser = {
-				theme = "ivy"
-			},
-			help_tags = {
-				theme = "dropdown",
-				previewer = false,
-			}
-		},
-		extensions = {
-			fzf = {
-				fuzzy = true,
-				override_file_sorter = true,
-			},
-			fzf_writer = {
-				use_highlighter = true
-			}
-		}
-	}
+  tscope.setup {
+    defaults = {
+      -- Default configuration for telescope goes here:
+      -- config_key = value,
+      mappings = {
+        i = {
+          -- map actions.which_key to <C-h> (default: <C-/>)
+          -- actions.which_key shows the mappings for your picker,
+          -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+          ["<C-h>"] = "which_key"
+        }
+      }
+    },
+    pickers = {
+      -- Default configuration for builtin pickers goes here:
+      -- picker_name = {
+      --   picker_config_key = value,
+      --   ...
+      -- }
+      -- Now the picker_config_key will be applied every time you call this
+      -- builtin picker
+      find_files = {
+        theme = "ivy"
+      },
 
-	tscope.load_extension("fzf")
+      live_grep = {
+        theme = "ivy"
+      },
 
-	local opts = { silent = true, noremap = true }
+      grep_string = {
+        theme = "ivy"
+      },
 
-	-- staged grep
-	vim.api.nvim_set_keymap(
-		"n",
-		"<Leader>ga",
-		":lua require('telescope').extensions.fzf_writer.staged_grep(require('telescope.themes').get_ivy())<CR>",
-		opts
-	)
-	-- find files
-	vim.api.nvim_set_keymap(
-		"n",
-		"<Leader>ff",
-		":lua require('telescope').extensions.fzf_writer.files(require('telescope.themes').get_ivy())<CR>",
-		opts
-	)
+      buffers = {
+        theme = "ivy"
+      }
+    },
+    extensions = {
+      -- Your extension configuration goes here:
+      -- extension_name = {
+      --   extension_config_key = value,
+      -- }
+      -- please take a look at the readme of the extension you want to configure
+    }
+  }
 
-	-- Seems to be a bug sending to quick fix list from here. (Only provides the directory of list item)
-	vim.api.nvim_set_keymap("n", "<Leader>ds", "<Cmd> Telescope lsp_workspace_diagnostics<CR>", opts)
-
-	vim.api.nvim_set_keymap("n", "<Leader>gs", "<Cmd> Telescope grep_string<CR>", opts)
-	vim.api.nvim_set_keymap("n", "<Leader>bl", "<Cmd> Telescope buffers<CR>", opts)
-	vim.api.nvim_set_keymap("n", "<Leader>bs", "<Cmd> Telescope current_buffer_fuzzy_find<CR>", opts)
-
-	vim.api.nvim_set_keymap("n", "<Leader>pv", "<Cmd> Telescope file_browser<CR>", opts)
-
-	vim.api.nvim_set_keymap("n", "<Leader>;;", "<Cmd> Telescope help_tags<CR>", opts)
+local opts = { silent = true, noremap = true }
+-- FILE PICKERS --
+-- List files in cwd
+vim.api.nvim_set_keymap("n", "<Leader>ff", "<Cmd> Telescope find_files<CR>", opts)
+-- Search for string in cwd
+vim.api.nvim_set_keymap("n", "<Leader>fg", "<Cmd> Telescope live_grep<CR>", opts)
+-- Search for string under cursor in cwd
+vim.api.nvim_set_keymap("n", "<Leader>fs", "<Cmd> Telescope grep_string<CR>", opts)
+-- VIM PICKERS --
+-- Lists open buffers in current neovim instance
+vim.api.nvim_set_keymap("n", "<Leader>fb", "<Cmd> Telescope buffers<CR>", opts)
 end
