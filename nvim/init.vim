@@ -12,8 +12,8 @@ set expandtab
 colorscheme codedark
 
 set path+=**
-set undodir=~/.vim/undodir
 set undofile
+set undodir=~/.vim/undodir
 
 fun! TrimWhitespace()
   let l:save = winsaveview()
