@@ -17,15 +17,10 @@ if has_ts then
             "html",
             "css",
         },
-	additional_vim_regex_highlighting = false,
         highlight = {
             enable = true,
-            disable = {},
+            disable = { "lua" }
         },
 
-        indent = {
-            enable = true,
-            disable = { "typescript", "python" }
-        },
     }
 end

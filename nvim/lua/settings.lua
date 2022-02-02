@@ -14,7 +14,7 @@ vim.opt.termguicolors = true
 vim.opt.relativenumber = true -- Show line numbers relative to cursor.
 vim.opt.number = true -- Show actual number for the line we are on.
 vim.opt.showcmd = false -- Shows previous cmd in bottom right corner.
-vim.opt.showmode = false -- Shows current editor mode. (insert, visual, normal)
+vim.opt.showmode = true -- Shows current editor mode. (insert, visual, normal)
 vim.opt.ignorecase = true -- Ignore case when searching...
 vim.opt.smartcase = true -- ...unless there is a capital letter.
 vim.opt.hlsearch = true
@@ -36,6 +36,8 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 
 vim.opt.clipboard = "unnamedplus"
+
+vim.cmd([[colorscheme gruvbox]])
 
 --vim.opt.tabstop = 4 -- Number of spaces that a tab in a file accounts for.
 --vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of autoindent

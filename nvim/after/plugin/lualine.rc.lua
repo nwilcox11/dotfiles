@@ -1,4 +1,5 @@
 local has_lualine, lualine = pcall(require, "lualine")
+has_lualine = false
 
 if has_lualine then
     lualine.setup {
