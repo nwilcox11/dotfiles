@@ -11,6 +11,8 @@ call plug#begin('~/.config/nvim/plugged')
     "Fzf
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    "Git
+    Plug 'lewis6991/gitsigns.nvim'
     "Colorschemes
     Plug 'ellisonleao/gruvbox.nvim'
 	Plug 'kyazdani42/nvim-web-devicons'

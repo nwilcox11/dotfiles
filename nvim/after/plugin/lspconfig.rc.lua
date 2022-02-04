@@ -46,7 +46,7 @@ if has_lsp then
           eslint = {
             command = 'eslint_d',
             rootPatterns = { '.git' },
-            debounce = 100,
+            debounce = 200,
             args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
             sourceName = 'eslint_d',
             parseJson = {
@@ -101,8 +101,7 @@ if has_lsp then
     -- icon
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
-        underline = true,
-        -- This sets the spacing and the prefix, obviously.
+        underline = false,
         virtual_text = {
           spacing = 4,
           prefix = ''
