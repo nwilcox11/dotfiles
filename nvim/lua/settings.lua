@@ -8,7 +8,7 @@ local bo = vim.bo
 local g = vim.g
 
 g.mapleader = " "
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menu,menuone,noselect"
 vim.opt.background = "dark"
 vim.opt.termguicolors = true
 vim.opt.relativenumber = true -- Show line numbers relative to cursor.
