@@ -1,8 +1,7 @@
 local has_trouble, trouble = pcall(require, "trouble")
 
 if has_trouble then
-  trouble.setup {
-  }
+  trouble.setup {}
 
 local opts = { silent = true, noremap = true }
 

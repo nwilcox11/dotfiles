@@ -5,6 +5,16 @@
 	ui = true
 [core]
 	excludesfile = /Users/nickwilcox/.gitignore
-	editor = vim
+	editor = nvim
 [pull]
 	rebase = true
+[alias]
+  d = diff
+  dt = difftool
+  st = status
+  br = branch
+[diff]
+  tool = nvimdiff
+[difftool "nvimdiff"]
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+	path =

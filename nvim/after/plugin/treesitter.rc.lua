@@ -1,8 +1,5 @@
 local has_ts, ts = pcall(require, 'nvim-treesitter.configs')
 -- https://github.com/nvim-treesitter/nvim-treesitter
---
--- Turning off treesitter for now.
-has_ts = false
 
 if has_ts then
   ts.setup {
@@ -21,7 +18,7 @@ if has_ts then
       "css"
     },
     highlight = {
-      enable = false,
+      enable = true,
       disable = { "typescript" }
     },
     indent = {
