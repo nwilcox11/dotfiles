@@ -9,8 +9,6 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-colorscheme codedark
-
 set path+=**
 set undofile
 set undodir=~/.vim/undodir

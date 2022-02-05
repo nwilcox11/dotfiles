@@ -1,75 +1,102 @@
 local has_lsp, lsp = pcall(require, "lspconfig")
+local cmp_nvim_lsp = require'cmp_nvim_lsp'
 
 if has_lsp then
-    local on_attach = function(client, bufnr)
-        local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-        local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  local on_attach = function(client, bufnr)
+      local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+      local opts = { noremap = true, silent = true }
+      buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+      buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+      buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
+      buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+      -- Diagnostics
+      buf_set_keymap("n", "<Leader>ds", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
+      vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  end
 
-        buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
-        local opts = { noremap=true, silent=true }
-
-        buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-        buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-        buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
-        buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-
-       buf_set_keymap("n", "<Leader>di", "<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-
-        -- format on save.
-        if client.resolved_capabilities.document_formatting then
-            vim.api.nvim_command [[augroup Format]]
-            vim.api.nvim_command [[autocmd! * <buffer>]]
-            vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-            vim.api.nvim_command [[augroup END]]
-        end
-    end
-
-    lsp.tsserver.setup {
-        on_attach = function (client, bufnr)
-            -- TODO: watch for formatting issues.
-            -- client.resolved_capabilities.document_formatting = false
-            on_attach(client, bufnr)
-        end,
-        filetypes = {
-           "typescript",
-           "typescriptreact",
-           "typescript.tsx",
-           "javascript",
-           "javascriptreact"
-        }
-    }
-
-    lsp.diagnosticls.setup {
+  -- Enable the following Lsp's
+  local servers = { "clangd", "pyright", "tsserver", "gopls" }
+  for _, s in ipairs(servers) do
+    lsp[s].setup {
       on_attach = on_attach,
-      filetypes = {
-        -- "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-        "javascript",
-        "javascriptreact",
-        "css",
-        "html",
-        "markdown"
-      },
+      capabilities = capabilities
+    }
+  end
+
+  -- Custom server setups
+  lsp.diagnosticls.setup {
+      on_attach = on_attach,
+      filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css' },
       init_options = {
-        formatters = {
-          prettier = {
-            command = "prettier",
-            args = { "--stdin-filepath", "%filename" },
+        linters = {
+          eslint = {
+            command = 'eslint_d',
+            rootPatterns = { '.git' },
+            debounce = 200,
+            args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
+            sourceName = 'eslint_d',
+            parseJson = {
+              errorsRoot = '[0].messages',
+              line = 'line',
+              column = 'column',
+              endLine = 'endLine',
+              endColumn = 'endColumn',
+              message = '[eslint] ${message} [${ruleId}]',
+              security = 'severity'
+           },
+            securities = {
+              [2] = 'error',
+              [1] = 'warning'
+            }
           },
         },
+        filetypes = {
+          javascript = 'eslint',
+          javascriptreact = 'eslint',
+          typescript = 'eslint',
+          typescriptreact = 'eslint',
+        },
+        formatters = {
+          eslint_d = {
+            command = 'eslint_d',
+            rootPatterns = { '.git' },
+            args = { '--stdin', '--stdin-filename', '%filename', '--fix-to-stdout' },
+            rootPatterns = { '.git' },
+          },
+          prettier = {
+            command = 'prettier_d_slim',
+            rootPatterns = { '.git' },
+            -- requiredFiles: { 'prettier.config.js' },
+            args = { '--stdin', '--stdin-filepath', '%filename' }
+          }
+        },
         formatFiletypes = {
-          typescript = "prettier",
-          typescriptreact = "prettier",
-          javascript = "prettier",
-          javascriptreact = "prettier",
+          css = 'prettier',
+          javascript = 'prettier',
+          javascriptreact = 'prettier',
+          json = 'prettier',
+          scss = 'prettier',
+          less = 'prettier',
+          typescript = 'prettier',
+          typescriptreact = 'prettier',
+          json = 'prettier',
+          markdown = 'prettier',
         }
-      },
+      }
     }
-
-	lsp.clangd.setup { on_attach = on_attach }
-	lsp.gopls.setup { on_attach = on_attach }
-	lsp.pyright.setup { on_attach = on_attach }
+    -- icon
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        underline = false,
+        -- This sets the spacing and the prefix, obviously.
+        virtual_text = {
+          spacing = 4,
+          prefix = ''
+        }
+      }
+    )
 end
 

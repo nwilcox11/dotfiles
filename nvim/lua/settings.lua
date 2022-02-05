@@ -8,7 +8,7 @@ local bo = vim.bo
 local g = vim.g
 
 g.mapleader = " "
-
+vim.o.completeopt = "menu,menuone,noselect"
 vim.opt.background = "dark"
 vim.opt.termguicolors = true
 vim.opt.relativenumber = true -- Show line numbers relative to cursor.
@@ -25,7 +25,7 @@ vim.opt.scrolloff = 10 -- Always ten lines below cursor.
 vim.opt.cmdheight = 1 -- Height of the command bar.
 vim.opt.splitbelow = true -- Window panes split to the bottom.
 vim.opt.splitright = true -- Window panes split to the right.
-vim.opt.cursorline = true -- Highlight cursorline.
+vim.opt.cursorline = false -- Highlight cursorline.
 vim.opt.showmatch = false -- Don't show matching bracket when inserting.
 vim.opt.backup = false
 vim.opt.laststatus = 2 -- When will last window have a status line. (2 == Always)
@@ -37,12 +37,6 @@ vim.opt.swapfile = false
 
 vim.opt.clipboard = "unnamedplus"
 
---vim.opt.tabstop = 4 -- Number of spaces that a tab in a file accounts for.
---vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of autoindent
---vim.opt.softtabstop = 4
---vim.opt.expandtab = true
---vim.opt.autoindent = false
-
---bo.smartindent = true
---vim.opt.cindent = true
-
+vim.cmd([[colorscheme gruvbox]])
+-- vim.cmd([[colorscheme onedark]])
+-- vim.cmd([[colorscheme codedark]])

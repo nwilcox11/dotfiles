@@ -18,7 +18,8 @@ if has_ts then
       "css"
     },
     highlight = {
-      enable = false
+      enable = true,
+      disable = { "typescript" }
     },
     indent = {
       enable = true,
