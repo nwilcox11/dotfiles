@@ -1,5 +1,3 @@
-"TODO: Replace deprecated nvim-compe with 'hrsh7th/nvim-cmp'
-
 call plug#begin('~/.vim/plugged')
   "Lsp
   Plug 'neovim/nvim-lspconfig'
