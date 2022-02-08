@@ -62,5 +62,4 @@ if has_tscope then
     -- VIM PICKERS --
     -- Lists open buffers in current neovim instance
     vim.api.nvim_set_keymap("n", "<Leader>fb", "<Cmd> Telescope buffers<CR>", opts)
-	vim.api.nvim_set_keymap("n", "<Leader>ht", "<Cmd> Telescope help_tags<CR>", opts)
 end
