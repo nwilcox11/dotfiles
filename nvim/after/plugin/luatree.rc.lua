@@ -1,7 +1,11 @@
 local has_tree, tree = pcall(require, "nvim-tree")
 
 if has_tree then
-    tree.setup {}
+    tree.setup {
+        view = {
+            width = 35
+        }
+    }
 
     local opts = { silent = true, noremap = true }
     vim.api.nvim_set_keymap("n", "<C-n>", "<Cmd> :NvimTreeToggle<CR>", opts)
