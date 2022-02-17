@@ -13,6 +13,7 @@
   dt = difftool
   st = status
   br = branch
+  co = checkout
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]
