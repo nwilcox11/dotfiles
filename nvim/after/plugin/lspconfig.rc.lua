@@ -9,9 +9,12 @@ if has_lsp then
       buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
       buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
       buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+      -- Rename in buffer
+      buf_set_keymap("n", "<Leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
       -- Diagnostics
       buf_set_keymap("n", "<Leader>ds", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
-      vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+      -- Format
+      buf_set_keymap("n", "<Leader>p", "<Cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   end
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -78,8 +81,6 @@ if has_lsp then
           javascript = 'prettier',
           javascriptreact = 'prettier',
           json = 'prettier',
-          scss = 'prettier',
-          less = 'prettier',
           typescript = 'prettier',
           typescriptreact = 'prettier',
           json = 'prettier',
