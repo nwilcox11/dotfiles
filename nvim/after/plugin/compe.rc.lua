@@ -3,6 +3,9 @@ vim.opt.shortmess:append "c"
 
 local has_compe, compe = pcall(require, "compe")
 
+-- Deprecated
+has_compe = false
+
 if has_compe then
     compe.setup {
         enabled = true,

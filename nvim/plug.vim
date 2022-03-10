@@ -2,8 +2,14 @@ call plug#begin('~/.config/nvim/plugged')
     "Lsp
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-    Plug 'hrsh7th/nvim-compe'
     Plug 'folke/trouble.nvim'
+    "Completion
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'onsails/lspkind-nvim'
     "Telescope
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
