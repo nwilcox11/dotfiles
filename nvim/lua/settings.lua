@@ -25,7 +25,7 @@ vim.opt.scrolloff = 10 -- Always ten lines below cursor.
 vim.opt.cmdheight = 1 -- Height of the command bar.
 vim.opt.splitbelow = true -- Window panes split to the bottom.
 vim.opt.splitright = true -- Window panes split to the right.
-vim.opt.cursorline = false -- Highlight cursorline.
+vim.opt.cursorline = true -- Highlight cursorline.
 vim.opt.showmatch = false -- Don't show matching bracket when inserting.
 vim.opt.backup = false
 vim.opt.laststatus = 2 -- When will last window have a status line. (2 == Always)

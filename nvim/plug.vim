@@ -5,8 +5,11 @@ call plug#begin('~/.vim/plugged')
   "Completion
   Plug 'hrsh7th/nvim-compe'
   Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'saadparwaiz1/cmp_luasnip'
+  Plug 'onsails/lspkind-nvim'
   "Diagnostics
   Plug 'folke/trouble.nvim'
   "Telescope
@@ -20,6 +23,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
   "statusline
   Plug 'nvim-lualine/lualine.nvim'
+  "File Tree
+  Plug 'kyazdani42/nvim-tree.lua'
   "Colorschemes
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ellisonleao/gruvbox.nvim'
