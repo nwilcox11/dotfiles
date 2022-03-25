@@ -24,19 +24,23 @@ if has_tscope then
       -- Now the picker_config_key will be applied every time you call this
       -- builtin picker
       find_files = {
-        theme = "ivy"
+        theme = "ivy",
+        layout_config = { height = 0.65, preview_width = 0.60 },
       },
 
       live_grep = {
-       theme = "ivy"
+       theme = "ivy",
+       layout_config = { height = 0.65, preview_width = 0.60 },
       },
 
       grep_string = {
-        theme = "ivy"
+        theme = "ivy",
+        layout_config = { height = 0.65, preview_width = 0.60 },
       },
 
       buffers = {
-        theme = "ivy"
+        theme = "ivy",
+        layout_config = { height = 0.65, preview_width = 0.60 },
       }
     },
     extensions = {

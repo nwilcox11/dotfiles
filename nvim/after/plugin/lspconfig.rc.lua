@@ -1,46 +1,38 @@
 local has_lsp, lsp = pcall(require, "lspconfig")
+local cmp_nvim_lsp = require'cmp_nvim_lsp'
 
 if has_lsp then
-    local on_attach = function(client, bufnr)
-        local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-        local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  local on_attach = function(client, bufnr)
+      local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+      local opts = { noremap = true, silent = true }
+      buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+      buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+      buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
+      buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+      -- Rename in buffer
+      buf_set_keymap("n", "<Leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
+      -- Diagnostics
+      buf_set_keymap("n", "<Lader>ds", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
+      -- Format
+      buf_set_keymap("n", "<Leader>p", "<Cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  end
 
-        buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
-        local opts = { noremap=true, silent=true }
-
-        buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-        buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-        buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
-        buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-
-        -- format on save.
-        if client.resolved_capabilities.document_formatting then
-            vim.api.nvim_command [[augroup Format]]
-            vim.api.nvim_command [[autocmd! * <buffer>]]
-            vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-            vim.api.nvim_command [[augroup END]]
-        end
-    end
-
--- Set up LSPs
-    lsp.tsserver.setup {
-        on_attach = function (client, bufnr)
-            client.resolved_capabilities.document_formatting = false
-            on_attach(client, bufnr)
-        end,
-        filetypes = {
-           "typescript",
-           "typescriptreact",
-           "typescript.tsx",
-           "javascript",
-           "javascriptreact"
-        }
-    }
-
-    lsp.diagnosticls.setup {
+  -- Enable the following Lsp's
+  local servers = { "clangd", "pyright", "tsserver", "gopls" }
+  for _, s in ipairs(servers) do
+    lsp[s].setup {
       on_attach = on_attach,
-      filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less' },
+      capabilities = capabilities
+    }
+  end
+
+  -- Custom server setups
+  lsp.diagnosticls.setup {
+      on_attach = on_attach,
+      filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css' },
       init_options = {
         linters = {
           eslint = {
@@ -57,7 +49,7 @@ if has_lsp then
               endColumn = 'endColumn',
               message = '[eslint] ${message} [${ruleId}]',
               security = 'severity'
-            },
+           },
             securities = {
               [2] = 'error',
               [1] = 'warning'
@@ -89,8 +81,6 @@ if has_lsp then
           javascript = 'prettier',
           javascriptreact = 'prettier',
           json = 'prettier',
-          scss = 'prettier',
-          less = 'prettier',
           typescript = 'prettier',
           typescriptreact = 'prettier',
           json = 'prettier',
@@ -102,15 +92,11 @@ if has_lsp then
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
         underline = false,
+        -- This sets the spacing and the prefix, obviously.
         virtual_text = {
           spacing = 4,
           prefix = ''
         }
       }
     )
-
-	lsp.clangd.setup { on_attach = on_attach }
-	lsp.gopls.setup { on_attach = on_attach }
-	lsp.pyright.setup { on_attach = on_attach }
 end
-

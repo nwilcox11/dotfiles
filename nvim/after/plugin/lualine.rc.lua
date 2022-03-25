@@ -5,6 +5,7 @@ if has_lualine then
         options = {
             component_separators = '|',
             section_separators = '',
+            theme = 'gruvbox',
         }
     }
 end
