@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
     Plug 'folke/trouble.nvim'
+    Plug 'jose-elias-alvarez/null-ls.nvim'
     "Completion
     Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/nvim-cmp'
@@ -10,6 +11,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
     Plug 'onsails/lspkind-nvim'
+    Plug 'L3MON4D3/LuaSnip'
     "Telescope
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
@@ -23,9 +25,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'lewis6991/gitsigns.nvim'
     "Colorschemes
     Plug 'ellisonleao/gruvbox.nvim'
-	Plug 'kyazdani42/nvim-web-devicons'
-	Plug 'navarasu/onedark.nvim'
-	Plug 'tomasiser/vim-code-dark'
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'navarasu/onedark.nvim'
+    Plug 'tomasiser/vim-code-dark'
     "Status Line
     Plug 'hoob3rt/lualine.nvim'
 call plug#end()
