@@ -8,10 +8,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'saadparwaiz1/cmp_luasnip'
+  "Plug 'saadparwaiz1/cmp_luasnip'
+  Plug 'L3MON4D3/LuaSnip'
   Plug 'onsails/lspkind-nvim'
   "Diagnostics
   Plug 'folke/trouble.nvim'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
   "Telescope
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
