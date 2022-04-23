@@ -20,3 +20,4 @@ fun! TrimWhitespace()
 endfun
 
 autocmd BufWritePre * :call TrimWhitespace()
+autocmd Filetype go setlocal ts=4 sw=4 sts=4 noexpandtab

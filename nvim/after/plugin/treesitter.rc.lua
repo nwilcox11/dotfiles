@@ -23,7 +23,7 @@ if has_ts then
     },
     indent = {
       enable = true,
-      disable = { "typescript", "python" }
+      disable = { "typescript", "python", "go" }
     },
    }
 end
