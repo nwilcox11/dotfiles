@@ -4,8 +4,8 @@ lua require("maps")
 
 syntax on
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 set path+=**

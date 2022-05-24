@@ -27,7 +27,10 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ellisonleao/gruvbox.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'navarasu/onedark.nvim'
-    Plug 'tomasiser/vim-code-dark'
+    Plug 'EdenEast/nightfox.nvim'
+    Plug 'Mofiqul/vscode.nvim'
+    Plug 'tjdevries/colorbuddy.vim'
+    Plug 'tjdevries/gruvbuddy.nvim'
     "Status Line
     Plug 'hoob3rt/lualine.nvim'
 call plug#end()

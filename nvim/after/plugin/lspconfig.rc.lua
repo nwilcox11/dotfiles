@@ -13,7 +13,7 @@ if has_lsp then
       -- Rename in buffer
       buf_set_keymap("n", "<Leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
       -- Diagnostics
-      buf_set_keymap("n", "<Lader>ds", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
+      buf_set_keymap("n", "<Leader>ds", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
       -- Format
       buf_set_keymap("n", "<Leader>p", "<Cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   end
@@ -33,19 +33,22 @@ if has_lsp then
   local formatting_file_types = { "json", "javascript", "javascriptreact", "typescript", "typescriptreact" }
   local linting_file_types = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
 
-  null.setup({
-    sources = {
-      null.builtins.diagnostics.eslint_d.with({
-        filetypes = linting_file_types,
-        diagnostics_format = "[#{s}] #{m} [#{c}]"
-      }),
-      null.builtins.code_actions.eslint_d,
-      null.builtins.formatting.prettier.with({
-       filetypes = formatting_file_types
-      })
-    },
-    on_attach = on_attach
-  })
+   null.setup({
+     debug = false,
+     sources = {
+       null.builtins.code_actions.eslint_d,
+       null.builtins.diagnostics.eslint_d.with({
+         --args = { "-f", "json", "--stdin", "--stdin-filename", "$FILENAME" },
+         filetypes = linting_file_types,
+         diagnostics_format = "[#{s}] #{m} [#{c}]"
+       }),
+
+       null.builtins.formatting.prettier.with({
+        filetypes = formatting_file_types
+       })
+     },
+     on_attach = on_attach
+   })
 
   -- Custom server setups
   --lsp.diagnosticls.setup {
@@ -107,14 +110,14 @@ if has_lsp then
   --    }
   --  }
     -- icon
-    -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    --   vim.lsp.diagnostic.on_publish_diagnostics, {
-    --     underline = false,
-    --     -- This sets the spacing and the prefix, obviously.
-    --     virtual_text = {
-    --       spacing = 4,
-    --       prefix = ''
-    --     }
-    --   }
-    -- )
+     -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+     --   vim.lsp.diagnostic.on_publish_diagnostics, {
+     --     underline = false,
+     --     -- This sets the spacing and the prefix, obviously.
+     --     virtual_text = {
+     --       spacing = 4,
+     --       prefix = ''
+     --     }
+     --   }
+     -- )
 end

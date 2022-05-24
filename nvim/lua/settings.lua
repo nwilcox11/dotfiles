@@ -30,15 +30,23 @@ vim.opt.showmatch = false -- Don't show matching bracket when inserting.
 vim.opt.backup = false
 vim.opt.laststatus = 2 -- When will last window have a status line. (2 == Always)
 vim.opt.belloff = "all" -- No bells.
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.swapfile = false
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.cmd([[colorscheme gruvbox]])
+vim.g.vscode_style = "dark"
 
+require'colorbuddy'.colorscheme('gruvbuddy')
+--
+-- Previous Colors
+-- vim.cmd([[colorscheme nightfox]])
+-- vim.cmd([[colorscheme gruvbox]])
+-- vim.cmd([[colorscheme vscode]])
+--
+--
 --vim.opt.tabstop = 4 -- Number of spaces that a tab in a file accounts for.
 --vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of autoindent
 --vim.opt.softtabstop = 4

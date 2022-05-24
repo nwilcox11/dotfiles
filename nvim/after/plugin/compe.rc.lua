@@ -1,12 +1,10 @@
-vim.opt.completeopt = { "menuone", "noselect" }
-vim.opt.shortmess:append "c"
-
 local has_compe, compe = pcall(require, "compe")
-
 -- Deprecated
 has_compe = false
 
 if has_compe then
+    vim.opt.completeopt = { "menuone", "noselect" }
+    vim.opt.shortmess:append "c"
     compe.setup {
         enabled = true,
         autocomplete = true,
