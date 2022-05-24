@@ -28,9 +28,12 @@ call plug#begin('~/.vim/plugged')
   "File Tree
   Plug 'kyazdani42/nvim-tree.lua'
   "Colorschemes
+  Plug 'tjdevries/colorbuddy.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ellisonleao/gruvbox.nvim'
 	Plug 'navarasu/onedark.nvim'
 	Plug 'tomasiser/vim-code-dark'
+  Plug 'jhchabran/monarized'
+  Plug 'tjdevries/gruvbuddy.nvim'
 call plug#end()
 

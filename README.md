@@ -13,7 +13,12 @@ Requires Neovim >= 0.6
 * [gitsigns](https://github.com/lewis6991/gitsigns.nvim) - Git integration.
 * [lualine](https://github.com/nvim-lualine/lualine.nvim) - Status line written in lua.
 * [trouble](https://github.com/folke/trouble.nvim) - Diagnostic management.
+* [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) - Diagnostic/Formatting Interface.
 * [nvim-compe](https://github.com/hrsh7th/nvim-compe) - (Deprecated) Auto completion framework using Neovim's LSP.
+
+### Individual Language Servers
+* [typescript](https://github.com/typescript-language-server/typescript-language-server)
+* [svelte](https://github.com/sveltejs/language-tools/tree/master/packages/language-server)
 
 ## Shell setup
 

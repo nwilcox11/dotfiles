@@ -3,7 +3,7 @@ local cmp_nvim_lsp = require'cmp_nvim_lsp'
 local null = require'null-ls'
 
 if has_lsp then
-  local on_attach = function(client, bufnr)
+  local on_attach = function(_, bufnr)
       local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
       local opts = { noremap = true, silent = true }
       buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -22,13 +22,38 @@ if has_lsp then
   capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
   -- Enable the following Lsp's
-  local servers = { "clangd", "pyright", "tsserver", "gopls" }
+  local servers = { "clangd", "pyright", "tsserver", "svelte", "gopls", "graphql" }
+
   for _, s in ipairs(servers) do
     lsp[s].setup {
       on_attach = on_attach,
       capabilities = capabilities
     }
   end
+
+  require'lspconfig'.sumneko_lua.setup {
+    settings = {
+      Lua = {
+        runtime = {
+          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+          version = 'LuaJIT',
+        },
+        diagnostics = {
+          -- Get the language server to recognize the `vim` global
+          globals = {'vim'},
+        },
+        workspace = {
+          -- Make the server aware of Neovim runtime files
+          library = vim.api.nvim_get_runtime_file("", true),
+          checkThirdParty = false
+        },
+        -- Do not send telemetry data containing a randomized but unique identifier
+        telemetry = {
+          enable = false,
+        },
+      },
+    },
+  }
 
   local formatting_file_types = { "json", "javascript", "javascriptreact", "typescript", "typescriptreact" }
   local linting_file_types = { "javascript", "javascriptreact", "typescript", "typescriptreact" }

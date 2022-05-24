@@ -15,7 +15,9 @@ if has_ts then
       "fish",
       "json",
       "html",
-      "css"
+      "css",
+      "svelte",
+      "graphql"
     },
     highlight = {
       enable = true,
@@ -23,7 +25,7 @@ if has_ts then
     },
     indent = {
       enable = true,
-      disable = { "typescript", "python", "go" }
+      disable = { "css", "typescript", "python", "go" }
     },
    }
 end
