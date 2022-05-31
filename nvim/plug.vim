@@ -31,6 +31,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'Mofiqul/vscode.nvim'
     Plug 'tjdevries/colorbuddy.vim'
     Plug 'tjdevries/gruvbuddy.nvim'
+    Plug 'shaunsingh/nord.nvim'
+    Plug 'nwilcox11/simplescheme.nvim'
     "Status Line
     Plug 'hoob3rt/lualine.nvim'
 call plug#end()

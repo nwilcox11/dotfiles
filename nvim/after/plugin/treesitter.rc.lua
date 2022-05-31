@@ -20,7 +20,7 @@ if has_ts then
         },
         highlight = {
           enable = true,
-          -- disable = { "typescript" }
+          additional_vim_regex_highlighting = false,
         },
         indent = {
           enable = true,

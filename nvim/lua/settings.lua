@@ -37,9 +37,7 @@ vim.opt.swapfile = false
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.g.vscode_style = "dark"
-
-require'colorbuddy'.colorscheme('gruvbuddy')
+require'colorbuddy'.colorscheme('simplescheme')
 --
 -- Previous Colors
 -- vim.cmd([[colorscheme nightfox]])
