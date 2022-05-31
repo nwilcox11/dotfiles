@@ -18,4 +18,8 @@ fun! TrimWhitespace()
   call winrestview(l:save)
 endfun
 
+if has('nvim')
+  tnoremap <leader><Esc> <C-\><C-n>
+endif
+
 autocmd BufWritePre * :call TrimWhitespace()
