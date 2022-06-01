@@ -8,7 +8,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-nvim-lsp'
-  "Plug 'saadparwaiz1/cmp_luasnip'
   Plug 'L3MON4D3/LuaSnip'
   Plug 'onsails/lspkind-nvim'
   "Diagnostics
@@ -31,9 +30,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'tjdevries/colorbuddy.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ellisonleao/gruvbox.nvim'
-	Plug 'navarasu/onedark.nvim'
-	Plug 'tomasiser/vim-code-dark'
-  Plug 'jhchabran/monarized'
   Plug 'tjdevries/gruvbuddy.nvim'
+  Plug 'shaunsingh/nord.nvim'
+  "Plug tests
+  Plug '~/github/simplescheme.nvim'
 call plug#end()
 

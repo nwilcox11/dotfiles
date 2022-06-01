@@ -28,13 +28,9 @@ vim.opt.belloff = "all" -- No bells.
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.swapfile = false
-
 vim.opt.clipboard = "unnamedplus"
-require'colorbuddy'.colorscheme('gruvbuddy')
 
--- local monarized = require'monarized'
--- monarized.set_style("dark")
--- vim.cmd([[colorscheme monarized]])
 -- vim.cmd([[colorscheme gruvbox]])
--- vim.cmd([[colorscheme onedark]])
--- vim.cmd([[colorscheme codedark]])
+-- vim.cmd([[colorscheme nord]])
+-- require'colorbuddy'.colorscheme('gruvbuddy')
+require'colorbuddy'.colorscheme('simplescheme')

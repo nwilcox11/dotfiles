@@ -19,5 +19,7 @@ fun! TrimWhitespace()
   call winrestview(l:save)
 endfun
 
+tnoremap <leader><Esc> <C-\><C-n>
+
 autocmd BufWritePre * :call TrimWhitespace()
 autocmd Filetype go setlocal ts=4 sw=4 sts=4 noexpandtab

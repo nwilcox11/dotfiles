@@ -8,6 +8,8 @@ set __fish_git_prompt_showupstream 'none'
 set -g fish_prompt_pwd_dir_length 3
 set -gx TERM xterm-256color
 
+alias ll "ls -lG -a"
+
 # clangd lsp
 fish_add_path /usr/local/opt/llvm/bin
 # gopls lsp

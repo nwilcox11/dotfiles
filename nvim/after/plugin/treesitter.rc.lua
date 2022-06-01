@@ -1,5 +1,6 @@
 local has_ts, ts = pcall(require, 'nvim-treesitter.configs')
 -- https://github.com/nvim-treesitter/nvim-treesitter
+-- Custom highlights - :h nvim-treesitter-highlights
 
 if has_ts then
   ts.setup {
@@ -21,7 +22,7 @@ if has_ts then
     },
     highlight = {
       enable = true,
-      disable = { "typescript" }
+      additional_vim_regex_highlighting = false,
     },
     indent = {
       enable = true,
