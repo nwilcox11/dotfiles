@@ -41,7 +41,7 @@ if has_lsp then
     signs = {
       active = diagnostic_signs,
     },
-    update_in_insert = true,
+    update_in_insert = false,
     underline = false,
     severity_sort = true,
     float = {

@@ -24,8 +24,5 @@ keymap("n", "<C-q>", "<Cmd> :copen<CR>", opts)
 keymap("n", "<C-k>", "<Cmd> :cnext<CR>", opts)
 keymap("n", "<C-j>", "<Cmd> :cprev<CR>", opts)
 
--- built in file explorer
-keymap("n", "<Leader>e", ":Lex 30<CR>", opts)
-
 -- Hold on to what I have yanked after paste
 keymap("v", "p", '"_dP"', opts)
