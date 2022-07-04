@@ -35,5 +35,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'shaunsingh/nord.nvim'
   "Plug tests
   Plug '~/github/simplescheme.nvim'
+  Plug 'windwp/nvim-autopairs'
 call plug#end()
 
