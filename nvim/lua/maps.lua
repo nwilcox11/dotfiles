@@ -1,20 +1,31 @@
-local opts = { silent = true }
+local opts = { noremap = true, silent = true }
+-- local term_opts = { silent = true }
 
-vim.api.nvim_set_keymap("n", "<Leader>h", ":wincmd h<CR>", opts)
-vim.api.nvim_set_keymap("n", "<Leader>j", ":wincmd j<CR>", opts)
-vim.api.nvim_set_keymap("n", "<Leader>k", ":wincmd k<CR>", opts)
-vim.api.nvim_set_keymap("n", "<Leader>l", ":wincmd l<CR>", opts)
+local keymap = vim.api.nvim_set_keymap
+
+vim.g.mapleader = " "
+
+keymap("n", "<Leader>h", ":wincmd h<CR>", opts)
+keymap("n", "<Leader>j", ":wincmd j<CR>", opts)
+keymap("n", "<Leader>k", ":wincmd k<CR>", opts)
+keymap("n", "<Leader>l", ":wincmd l<CR>", opts)
 
 -- Tab management
-vim.api.nvim_set_keymap("n", "th", ":tabprevious<CR>", opts)
-vim.api.nvim_set_keymap("n", "tl", ":tabnext<CR>", opts)
-vim.api.nvim_set_keymap("n", "tn", ":tabnew<CR>", opts)
-vim.api.nvim_set_keymap("n", "ts", ":tab split<CR>", opts)
+keymap("n", "th", ":tabprevious<CR>", opts)
+keymap("n", "tl", ":tabnext<CR>", opts)
+keymap("n", "tn", ":tabnew<CR>", opts)
+keymap("n", "ts", ":tab split<CR>", opts)
 
-vim.api.nvim_set_keymap("i", "<C-c>", "<esc>", opts)
-vim.api.nvim_set_keymap("n", "<C-c>", "<esc>", opts)
+keymap("i", "<C-c>", "<esc>", opts)
+keymap("n", "<C-c>", "<esc>", opts)
 
 -- TODO: Map copen/cclose toggle.
-vim.api.nvim_set_keymap("n", "<C-q>", "<Cmd> :copen<CR>", opts)
-vim.api.nvim_set_keymap("n", "<C-k>", "<Cmd> :cnext<CR>", opts)
-vim.api.nvim_set_keymap("n", "<C-j>", "<Cmd> :cprev<CR>", opts)
+keymap("n", "<C-q>", "<Cmd> :copen<CR>", opts)
+keymap("n", "<C-k>", "<Cmd> :cnext<CR>", opts)
+keymap("n", "<C-j>", "<Cmd> :cprev<CR>", opts)
+
+-- built in file explorer
+keymap("n", "<Leader>e", ":Lex 30<CR>", opts)
+
+-- Hold on to what I have yanked after paste
+keymap("v", "p", '"_dP"', opts)
