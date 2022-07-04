@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
   "Diagnostics
   Plug 'folke/trouble.nvim'
   Plug 'jose-elias-alvarez/null-ls.nvim'
+  Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
   "Telescope
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
