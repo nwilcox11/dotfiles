@@ -35,4 +35,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'nwilcox11/simplescheme.nvim'
     "Status Line
     Plug 'hoob3rt/lualine.nvim'
+    Plug 'windwp/nvim-autopairs'
+    Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
 call plug#end()

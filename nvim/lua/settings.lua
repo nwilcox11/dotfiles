@@ -37,11 +37,11 @@ vim.opt.swapfile = false
 
 vim.opt.clipboard = "unnamedplus"
 
-require'colorbuddy'.colorscheme('simplescheme')
+vim.cmd([[colorscheme gruvbox]])
+-- require'colorbuddy'.colorscheme('simplescheme')
 --
 -- Previous Colors
 -- vim.cmd([[colorscheme nightfox]])
--- vim.cmd([[colorscheme gruvbox]])
 -- vim.cmd([[colorscheme vscode]])
 --
 --

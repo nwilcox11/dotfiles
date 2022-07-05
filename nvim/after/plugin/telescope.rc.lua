@@ -4,6 +4,7 @@ local actions = require'telescope.actions'
 if has_tscope then
   tscope.setup {
     defaults = {
+      file_ignore_patterns = {"%.git/", "node_modules/", "coverage/" },
       -- Default configuration for telescope goes here:
       -- config_key = value,
       mappings = {
