@@ -4,7 +4,11 @@ if has_tree then
     tree.setup {
         view = {
             width = 35
-        }
+        },
+      diagnostics = {
+      enable = true,
+      show_on_dirs = true,
+    }
     }
 
     local opts = { silent = true, noremap = true }
