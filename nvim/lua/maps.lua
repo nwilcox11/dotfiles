@@ -11,11 +11,10 @@ keymap("n", "<Leader>k", ":wincmd k<CR>", opts)
 keymap("n", "<Leader>l", ":wincmd l<CR>", opts)
 
 -- Tab management
-keymap("n", "th", ":tabprevious<CR>", opts)
-keymap("n", "tl", ":tabnext<CR>", opts)
+keymap("n", "H", ":tabprevious<CR>", opts)
+keymap("n", "L", ":tabnext<CR>", opts)
 keymap("n", "tn", ":tabnew<CR>", opts)
 keymap("n", "ts", ":tab split<CR>", opts)
-
 keymap("i", "<C-c>", "<esc>", opts)
 keymap("n", "<C-c>", "<esc>", opts)
 
