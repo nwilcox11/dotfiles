@@ -19,3 +19,5 @@
 [difftool "nvimdiff"]
   cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 	path =
+[init]
+	defaultBranch = main
