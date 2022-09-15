@@ -10,7 +10,7 @@ if has_lsp then
       keymap(bufnr, "n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
       keymap(bufnr, "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
       keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-      -- Rename in buffer
+      -- Rename in buffer TODO: this doesn't work well.
       keymap(bufnr, "n", "<Leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
       -- Diagnostics
       keymap(bufnr, "n", "<Leader>ds", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
@@ -72,7 +72,7 @@ if has_lsp then
   capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
   -- Enable the following Lsp's
-  local servers = { "clangd", "pyright", "tsserver", "gopls" }
+  local servers = { "clangd", "pyright", "tsserver", "gopls", "astro" }
 
   for _, s in ipairs(servers) do
     lsp[s].setup {
@@ -81,3 +81,4 @@ if has_lsp then
     }
   end
 end
+

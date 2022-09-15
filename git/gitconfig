@@ -1,12 +1,30 @@
 [user]
-	email = wilcox.nicholas.m@gmail.com
-	name = nwilcox11
-[includeIf "gitdif:~/azdo/"]
-	path = ~/azdo/.gitconfig
+	email = nicholas.wilcox@ge.com
+	name = Nick Wilcox
 [color]
-	ui = true
+	ui = auto
 [core]
 	excludesfile = /Users/nickwilcox/.gitignore
 	editor = nvim
+	noVerify = true
 [pull]
 	rebase = true
+[http "raw.githubusercontent.com"]
+	proxy = PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80
+	sslVerify = false
+[http "https://github.com"]
+	proxy = PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80
+	sslVerify = false
+[http "https://dev.azure.com"]
+	proxy = PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80
+    sslVerify = false
+[alias]
+    d = diff
+    dt = difftool
+    st = status
+    co = checkout
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+	path =

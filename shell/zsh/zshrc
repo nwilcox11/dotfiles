@@ -18,6 +18,12 @@ prompt pure
 
 alias ll='ls -lG'
 
+export SC_PAT="aHNleXI3Z2xhbG1ycGFleWlidXNjazNyejMyc3BjNHQ2cHZvam9vd2xrZDR1cnN4eXQ1cQ=="
+
+ export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completio
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/nicholaswilcox/.sdkman"
 [[ -s "/Users/nicholaswilcox/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/nicholaswilcox/.sdkman/bin/sdkman-init.sh"
