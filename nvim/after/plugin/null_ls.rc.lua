@@ -7,13 +7,13 @@ local formatting_file_types = { "json", "javascript", "javascriptreact", "typesc
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-local diagnostics = null.builtins.diagnostics
+-- local diagnostics = null.builtins.diagnostics
 
 null.setup({
   sources = {
     formatting.prettier.with({
      filetypes = formatting_file_types
     }),
-    diagnostics.eslint_d,
+    -- diagnostics.eslint_d,
   },
 })

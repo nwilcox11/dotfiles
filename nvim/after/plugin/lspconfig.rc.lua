@@ -72,8 +72,7 @@ if has_lsp then
   capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
   -- Enable the following Lsp's
-  local servers = { "clangd", "pyright", "tsserver", "svelte", "gopls", "graphql" }
-
+  local servers = { "clangd", "pyright", "svelte", "gopls", "graphql" }
   for _, s in ipairs(servers) do
     lsp[s].setup {
       on_attach = on_attach,
@@ -81,7 +80,19 @@ if has_lsp then
     }
   end
 
-  require'lspconfig'.sumneko_lua.setup {
+  lsp.denols.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
+  }
+
+  lsp.tsserver.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    root_dir = lsp.util.root_pattern("package.json"),
+  }
+
+  lsp.sumneko_lua.setup {
     settings = {
       Lua = {
         runtime = {
