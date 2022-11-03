@@ -25,9 +25,12 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.shiftwidth = 2
--- vim.cmd([[colorscheme nord]])
--- require'colorbuddy'.colorscheme('gruvbuddy')
--- require'colorbuddy'.colorscheme('simplescheme')
 
-vim.cmd([[colorscheme gruvbox]])
+-- Deno
+vim.g.markdown_fenced_languages = {
+  "ts=typescript"
+}
+
+vim.cmd([[colorscheme rose-pine]])
+-- vim.cmd([[colorscheme gruvbox]])
 vim.cmd([[set iskeyword+=-]]) -- treat foo-bar as one word

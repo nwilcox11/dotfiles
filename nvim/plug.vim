@@ -28,11 +28,9 @@ call plug#begin('~/.vim/plugged')
   "File Tree
   Plug 'kyazdani42/nvim-tree.lua'
   "Colorschemes
-  Plug 'tjdevries/colorbuddy.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ellisonleao/gruvbox.nvim'
-  Plug 'tjdevries/gruvbuddy.nvim'
-  Plug 'shaunsingh/nord.nvim'
+  Plug 'rose-pine/neovim', { 'as': 'rose-pine', 'tag': 'v1.*' }
   "Plug tests
   Plug '~/github/simplescheme.nvim'
   Plug 'windwp/nvim-autopairs'
