@@ -12,6 +12,9 @@ local formatting = null.builtins.formatting
 null.setup({
   sources = {
     formatting.prettier.with({
+      condition = function (utils)
+        return utils.root_has_file({ "package.json" })
+      end,
      filetypes = formatting_file_types
     }),
     -- diagnostics.eslint_d,
