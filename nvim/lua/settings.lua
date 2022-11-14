@@ -31,6 +31,8 @@ vim.g.markdown_fenced_languages = {
   "ts=typescript"
 }
 
-vim.cmd([[colorscheme rose-pine]])
--- vim.cmd([[colorscheme gruvbox]])
 vim.cmd([[set iskeyword+=-]]) -- treat foo-bar as one word
+
+vim.cmd([[colorscheme tokyonight]])
+-- vim.cmd([[colorscheme rose-pine]])
+-- vim.cmd([[colorscheme gruvbox]])

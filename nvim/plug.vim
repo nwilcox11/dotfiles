@@ -31,6 +31,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ellisonleao/gruvbox.nvim'
   Plug 'rose-pine/neovim', { 'as': 'rose-pine', 'tag': 'v1.*' }
+  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
   "Plug tests
   Plug '~/github/simplescheme.nvim'
   Plug 'windwp/nvim-autopairs'
