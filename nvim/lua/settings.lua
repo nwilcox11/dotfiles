@@ -37,13 +37,9 @@ vim.opt.swapfile = false
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme tokyonight-night]])
+-- vim.cmd([[colorscheme gruvbox]])
 -- require'colorbuddy'.colorscheme('simplescheme')
---
--- Previous Colors
--- vim.cmd([[colorscheme nightfox]])
--- vim.cmd([[colorscheme vscode]])
---
 --
 --vim.opt.tabstop = 4 -- Number of spaces that a tab in a file accounts for.
 --vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of autoindent

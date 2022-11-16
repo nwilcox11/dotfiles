@@ -26,13 +26,8 @@ call plug#begin('~/.config/nvim/plugged')
     "Colorschemes
     Plug 'ellisonleao/gruvbox.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'navarasu/onedark.nvim'
     Plug 'EdenEast/nightfox.nvim'
-    Plug 'Mofiqul/vscode.nvim'
-    Plug 'tjdevries/colorbuddy.vim'
-    Plug 'tjdevries/gruvbuddy.nvim'
-    Plug 'shaunsingh/nord.nvim'
-    Plug 'nwilcox11/simplescheme.nvim'
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     "Status Line
     Plug 'hoob3rt/lualine.nvim'
     Plug 'windwp/nvim-autopairs'

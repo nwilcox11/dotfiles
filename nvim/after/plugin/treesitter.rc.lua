@@ -16,7 +16,8 @@ if has_ts then
           "fish",
           "json",
           "html",
-          "css"
+          "css",
+          "astro"
         },
         highlight = {
           enable = true,

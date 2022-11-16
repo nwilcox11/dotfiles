@@ -72,7 +72,7 @@ if has_lsp then
   capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
   -- Enable the following Lsp's
-  local servers = { "clangd", "pyright", "tsserver", "gopls", "astro" }
+  local servers = { "clangd", "pyright", "tsserver", "gopls" }
 
   for _, s in ipairs(servers) do
     lsp[s].setup {
@@ -80,5 +80,13 @@ if has_lsp then
       capabilities = capabilities
     }
   end
+
+  lsp.astro.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    typescript = {
+      serverPath = "./usr/local/bin/tsserver"
+    }
+  }
 end
 

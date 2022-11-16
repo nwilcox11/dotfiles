@@ -23,3 +23,4 @@ if has('nvim')
 endif
 
 autocmd BufWritePre * :call TrimWhitespace()
+autocmd BufRead,BufEnter *.astro set filetype=astro
