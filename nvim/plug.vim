@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     "File Tree
     Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'mbbill/undotree'
     "Fzf
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
