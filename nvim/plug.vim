@@ -28,9 +28,12 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ellisonleao/gruvbox.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'EdenEast/nightfox.nvim'
+    Plug 'rose-pine/neovim'
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     "Status Line
     Plug 'hoob3rt/lualine.nvim'
     Plug 'windwp/nvim-autopairs'
     Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
+    "testing git plugin
+    Plug 'tpope/vim-fugitive'
 call plug#end()
