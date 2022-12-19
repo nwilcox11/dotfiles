@@ -34,6 +34,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'hoob3rt/lualine.nvim'
     Plug 'windwp/nvim-autopairs'
     Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
-    "testing git plugin
+    "-- testing --
     Plug 'tpope/vim-fugitive'
+    Plug 'folke/zen-mode.nvim'
 call plug#end()
