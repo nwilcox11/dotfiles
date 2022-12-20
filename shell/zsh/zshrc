@@ -14,7 +14,11 @@ zstyle :prompt:pure:git:dirty color '#FF0080' # Highligt - Alert
 zstyle :prompt:pure:git:branch color '#F7B955'
 zstyle :prompt:pure:git:stash show yes
 
+path+=$HOME/github/dotfiles/bin/local
+
 prompt pure
+
+bindkey -s ^f "tmux-sessionizer\n"
 
 alias ll='ls -lG'
 

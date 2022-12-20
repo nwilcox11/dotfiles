@@ -22,3 +22,5 @@ vim.api.nvim_set_keymap("n", "<C-j>", "<Cmd> :cprev<CR>", opts)
 
 -- Hold on to what I have yanked after paste.
 vim.api.nvim_set_keymap("v", "p", '"_dP"', opts)
+
+vim.api.nvim_set_keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", opts)

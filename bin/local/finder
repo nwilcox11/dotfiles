@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+  selected=$1
+else
+  selected=$(find ~/ ~/azdo ~/github ~/scratch -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+if [ -d $selected ]; then
+  echo $selected 'is a directory'
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+
+echo this is the selected name: $selected_name
+
+exit 0
