@@ -5,6 +5,10 @@ local keymap = vim.api.nvim_set_keymap
 
 vim.g.mapleader = " "
 
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
+-- keymap("n", "n", "nzz", opts)
+
 keymap("n", "<Leader>h", ":wincmd h<CR>", opts)
 keymap("n", "<Leader>j", ":wincmd j<CR>", opts)
 keymap("n", "<Leader>k", ":wincmd k<CR>", opts)
