@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [[ -f ~/.gitconfig ]]; then
+	rm ~/.gitconfig
+fi
+ln -s $(pwd)/gitconfig ~/.gitconfig
+
+if [[ -f ~/.tmux.conf ]]; then
+	rm ~/.tmux.conf
+fi
+ln -s $(pwd)/tmux/tmux.conf ~/.tmux.conf
+# cp $(pwd)/tmux/tmux.conf ~/.tmux.conf
