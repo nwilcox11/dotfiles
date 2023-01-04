@@ -9,4 +9,8 @@ if [[ -f ~/.tmux.conf ]]; then
 	rm ~/.tmux.conf
 fi
 ln -s $(pwd)/tmux/tmux.conf ~/.tmux.conf
-# cp $(pwd)/tmux/tmux.conf ~/.tmux.conf
+
+if [[ -f ~/.zsh_profile ]]; then
+	rm ~/.zsh_profile
+fi
+ln -s $(pwd)/shell/zsh_profile ~/.zsh_profile
