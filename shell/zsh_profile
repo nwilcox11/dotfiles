@@ -1,0 +1,6 @@
+VIM="nvim"
+path+=($HOME/github/dotfiles/bin/.local/scripts)
+export PATH
+export XDG_CONFIG_HOME=$HOME/.config
+export GOPATH=$HOME/go
+bindkey -s ^f "tmux-sessionizer\n"
