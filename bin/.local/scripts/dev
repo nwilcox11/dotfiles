@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [[ -d ~/.config/nvim ]]; then
+	rm -rf ~/.config/nvim
+fi
+ln -s $(pwd)/nvim ~/.config/nvim
+
 if [[ -f ~/.gitconfig ]]; then
 	rm ~/.gitconfig
 fi
