@@ -1,6 +1,6 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
-vim.cmd [[packadd packer.nvim]]
+vim.cmd.packadd("packer.nvim")
 
 return require('packer').startup(function(use)
 	-- Packer can manage itself
@@ -24,5 +24,27 @@ return require('packer').startup(function(use)
 
 	use { 'mbbill/undotree' }
 
-	use { 'tpope/vim-fugitive' }
+  -- git
+  use {
+    'lewis6991/gitsigns.nvim',
+    'tpope/vim-fugitive',
+  }
+
+  -- Lsp
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
+  -- Completions
+  use {
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lua",
+	 	"L3MON4D3/LuaSnip",
+	 	"rafamadriz/friendly-snippets",
+  }
 end)
