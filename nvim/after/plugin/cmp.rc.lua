@@ -9,24 +9,24 @@ cmp.setup({
   },
   window = {
     -- completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered()
+    -- documentation = cmp.config.window.bordered()
   },
   mapping = cmp.mapping.preset.insert({
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-d>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.close(),
     ["C-space"] = cmp.mapping.complete(),
     ["<CR>"] = cmp.mapping.confirm(),
     ["<c-n>"] = function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
       else
         fallback()
       end
     end,
     ["<c-p>"] = function(fallback)
       if cmp.visible() then
-        cmp.select_prev_item()
+        cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
       else
         fallback()
       end
