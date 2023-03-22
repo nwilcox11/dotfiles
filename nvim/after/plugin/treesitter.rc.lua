@@ -17,7 +17,8 @@ if has_ts then
           "json",
           "html",
           "css",
-          "astro"
+          "astro",
+          "yaml"
         },
         highlight = {
           enable = true,

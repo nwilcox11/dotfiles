@@ -24,3 +24,6 @@ vim.api.nvim_set_keymap("n", "<C-j>", "<Cmd> :cprev<CR>", opts)
 vim.api.nvim_set_keymap("v", "p", '"_dP"', opts)
 
 vim.api.nvim_set_keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", opts)
+
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex);
+vim.keymap.set("n", "<leader>pv", "<cmd>:Ex<CR>", opts);

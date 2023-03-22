@@ -18,7 +18,6 @@ if has_cmp then
            ["<C-e>"] = cmp.mapping.close(),
            ["C-space"] = cmp.mapping.complete(),
            ["<CR>"] = cmp.mapping.confirm(),
-            -- not sure why we need to map neovim default kep maps.
            ["<c-n>"] = function(fallback)
               if cmp.visible() then
                 cmp.select_next_item()

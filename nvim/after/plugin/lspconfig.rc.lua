@@ -15,7 +15,7 @@ if has_lsp then
       -- Diagnostics
       keymap(bufnr, "n", "<Leader>ds", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
       -- Format
-      keymap(bufnr, "n", "<Leader>p", "<Cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+      keymap(bufnr, "n", "<Leader>f", "<Cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   end
 
   local on_attach = function(client, bufnr)
@@ -30,24 +30,23 @@ if has_lsp then
     lsp_keymaps(bufnr)
   end
 
-  local diagnostic_signs = {
-    { name = "DiagnosticSignError", text = '',},
-    { name = "DiagnosticSignWarn", text = '' },
-		{ name = "DiagnosticSignHint", text = '' },
-		{ name = "DiagnosticSignInfo", text =  '' },
+  -- Gutter signs
+  local signs = {
+    Error = '●', Warn = '●', Hint = "●", Info = "●"
   }
 
-  for _, sign in ipairs(diagnostic_signs) do
-      vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+  for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
   end
 
   local diagnostic_config = {
     virtual_text = {
-      spacing = 2,
-      prefix = ''
+      -- spacing = 2,
+      prefix = '●',
     },
     signs = {
-      active = diagnostic_signs,
+      active = signs,
     },
     update_in_insert = false,
     underline = false,
@@ -61,7 +60,6 @@ if has_lsp then
       prefix = "",
     }
 }
-
   vim.diagnostic.config(diagnostic_config)
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {

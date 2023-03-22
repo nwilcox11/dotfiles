@@ -2,7 +2,7 @@ local zen = require('zen-mode')
 
 zen.setup {
   window = {
-    width = 90,
+    width = 150,
     options = {
       number = true,
       relativenumber = true,
