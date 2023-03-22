@@ -40,3 +40,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex);
 vim.keymap.set({ "i", "n" }, "<C-c>", "<Esc>", { silent = true });
 vim.keymap.set("n", "Q", "<nop>");
+
+-- We can run a Plenary test when building lua plugins.
+-- TODO: Can we map leader t to another command when the file type is different?
+vim.keymap.set("n", "<leader>t", "<Plug>PlenaryTestFile", { silent = true })

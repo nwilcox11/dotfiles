@@ -154,6 +154,11 @@ _G.packer_plugins = {
     path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
+  ["show-me-errors.nvim"] = {
+    loaded = true,
+    path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/show-me-errors.nvim",
+    url = "/Users/nickwilcox/plugins/show-me-errors.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/telescope.nvim",
