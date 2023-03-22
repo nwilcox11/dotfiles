@@ -43,4 +43,7 @@ return require('packer').startup(function(use)
     "hrsh7th/cmp-nvim-lua",
     "L3MON4D3/LuaSnip",
   }
+
+  -- Local plugins
+  use '~/plugins/show-me-errors.nvim'
 end)
