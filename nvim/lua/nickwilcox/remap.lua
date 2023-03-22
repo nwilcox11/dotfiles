@@ -30,10 +30,10 @@ vim.keymap.set("n", "tn", ":tabnew<CR>")
 vim.keymap.set("n", "ts", ":tab split<CR>")
 
 -- Split managment
-vim.keymap.set("n", "<Leader>h", ":wincmd h<CR>")
-vim.keymap.set("n", "<Leader>j", ":wincmd j<CR>")
-vim.keymap.set("n", "<Leader>k", ":wincmd k<CR>")
-vim.keymap.set("n", "<Leader>l", ":wincmd l<CR>")
+vim.keymap.set("n", "<Leader>h", ":wincmd h<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>j", ":wincmd j<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>k", ":wincmd k<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>l", ":wincmd l<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
