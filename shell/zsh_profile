@@ -13,5 +13,6 @@ export GOPATH=$HOME/go
 export PATH
 
 alias ll='ls -lG'
+alias tls='tmux ls'
 
 bindkey -s ^f "tmux-sessionizer\n"
