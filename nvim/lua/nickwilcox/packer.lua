@@ -16,6 +16,10 @@ return require('packer').startup(function(use)
     as = 'rose-pine',
   }
 
+  use { 'folke/tokyonight.nvim' }
+
+  use { 'nvim-lualine/lualine.nvim' }
+
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-treesitter/playground' }
 
