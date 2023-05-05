@@ -1,7 +1,17 @@
-
 path+=($HOME/github/dotfiles/bin/.local/scripts)
+
+source $HOME/antigen.zsh
+
+antigen bundle 'zsh-users/zsh-syntax-highlighting'
+antigen bundle 'zsh-users/zsh-autosuggestions'
+antigen apply
+
+zstyle :prompt:pure:git:stash show yesprompt pure
+
 export XDG_CONFIG_HOME=$HOME/.config
 export GOPATH=$HOME/go
 export PATH
+
+alias ll='ls -lG'
 
 bindkey -s ^f "tmux-sessionizer\n"
