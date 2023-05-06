@@ -14,5 +14,6 @@ export PATH
 
 alias ll='ls -lG'
 alias tls='tmux ls'
+alias atc='tmux attach-session -t'
 
 bindkey -s ^f "tmux-sessionizer\n"
