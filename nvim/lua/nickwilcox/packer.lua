@@ -11,15 +11,9 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use {
-    'rose-pine/neovim',
-    as = 'rose-pine',
-  }
-
-  use { 'folke/tokyonight.nvim' }
-
   use { 'nvim-lualine/lualine.nvim' }
 
+  -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-treesitter/playground' }
 
@@ -37,6 +31,7 @@ return require('packer').startup(function(use)
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
+
   -- Completions
   use {
     "hrsh7th/nvim-cmp",
@@ -47,6 +42,13 @@ return require('packer').startup(function(use)
     "hrsh7th/cmp-nvim-lua",
     "L3MON4D3/LuaSnip",
   }
+
+  -- Colors
+  use {
+    'rose-pine/neovim',
+    as = 'rose-pine',
+  }
+  use { 'folke/tokyonight.nvim' }
 
   -- Local plugins
   use '~/plugins/show-me-errors.nvim'
