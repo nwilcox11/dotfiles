@@ -1,3 +1,6 @@
+autoload -U promptinit; promptinit
+prompt pure
+
 path+=($HOME/github/dotfiles/bin/.local/scripts)
 
 source $HOME/antigen.zsh
@@ -13,7 +16,9 @@ export GOPATH=$HOME/go
 export PATH
 
 alias ll='ls -lG'
+
 alias tls='tmux ls'
-alias atc='tmux attach-session -t'
+alias tas='tmux attach-session -t'
+alias tks='tmux kill-session -t'
 
 bindkey -s ^f "tmux-sessionizer\n"
