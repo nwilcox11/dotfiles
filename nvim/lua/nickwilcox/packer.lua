@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
   -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-treesitter/playground' }
+  use {'nvim-treesitter/nvim-treesitter-context'}
 
   use { 'mbbill/undotree' }
 
@@ -52,4 +53,5 @@ return require('packer').startup(function(use)
 
   -- Local plugins
   use '~/plugins/show-me-errors.nvim'
+  use '~/plugins/fnr.nvim'
 end)
