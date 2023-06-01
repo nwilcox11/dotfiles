@@ -1,7 +1,9 @@
+fpath+=($HOME/plugins/pure)
+path+=($HOME/p/dotfiles/bin/.local/scripts)
+
+#https://github.com/sindresorhus/pure#getting-started
 autoload -U promptinit; promptinit
 prompt pure
-
-path+=($HOME/github/dotfiles/bin/.local/scripts)
 
 source $HOME/antigen.zsh
 
@@ -15,7 +17,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export GOPATH=$HOME/go
 export PATH
 
-alias ll='ls -lG'
+alias ll='ls -a -lG'
 
 alias tls='tmux ls'
 alias tas='tmux attach-session -t'

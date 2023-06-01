@@ -1,10 +1,10 @@
 [user]
-	email = wilcox.nicholas.m@gmail.com
-	name = nwilcox11
+	email = nicholas.a.wilcox@capgemini.com 
+	name = Nick Wilcox
 [color]
 	ui = true
 [core]
-	excludesfile = /Users/nickwilcox/.gitignore
+	excludesfile = /Users/nwilcox/.gitignore
 	editor = nvim
 [pull]
 	rebase = true
@@ -16,6 +16,7 @@
   co = checkout
 [diff]
   tool = nvimdiff
+
 [difftool "nvimdiff"]
   cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 	path =
