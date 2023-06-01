@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "tsserver", "denols", "lua_ls", "rust_analyzer", "gopls" },
+  ensure_installed = { "tsserver", "denols", "lua_ls", "rust_analyzer" },
 })
 
 local lsp = require("lspconfig")
@@ -53,23 +53,15 @@ lsp.lua_ls.setup {
   },
 }
 
-lsp.denols.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc", "deno_root"),
-}
-
 lsp.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   single_file_support = false,
-  root_dir = lsp.util.root_pattern("package.json", "tsconfig.json"),
 }
 
 lsp.rust_analyzer.setup {}
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  focusable = false,
   border = "rounded",
 })
 
@@ -90,5 +82,6 @@ vim.diagnostic.config({
   signs = true,
   float = {
     source = "always",
+    border = "rounded",
   }
 })

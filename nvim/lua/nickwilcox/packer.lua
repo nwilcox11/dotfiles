@@ -1,6 +1,15 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
 
-vim.cmd.packadd("packer.nvim")
+local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
@@ -20,7 +29,7 @@ return require('packer').startup(function(use)
 
   use { 'mbbill/undotree' }
 
-  -- git
+  -- Git
   use {
     'lewis6991/gitsigns.nvim',
     'tpope/vim-fugitive',
@@ -44,6 +53,12 @@ return require('packer').startup(function(use)
     "L3MON4D3/LuaSnip",
   }
 
+  -- Diagnostics
+  use {
+    "folke/trouble.nvim",
+    "jose-elias-alvarez/null-ls.nvim"
+  }
+
   -- Colors
   use {
     'rose-pine/neovim',
@@ -51,7 +66,8 @@ return require('packer').startup(function(use)
   }
   use { 'folke/tokyonight.nvim' }
 
-  -- Local plugins
-  use '~/plugins/show-me-errors.nvim'
-  use '~/plugins/fnr.nvim'
+  if packer_bootstrap then
+    require("packer").sync()
+  end
+
 end)
