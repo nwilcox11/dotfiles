@@ -1,24 +1,36 @@
 [user]
-	email = nicholas.a.wilcox@capgemini.com 
+	email = nicholas.a.wilcox@capgemini.com
 	name = Nick Wilcox
+
 [color]
 	ui = true
+
 [core]
 	excludesfile = /Users/nwilcox/.gitignore
 	editor = nvim
+
 [pull]
 	rebase = true
+
 [alias]
   d = diff
   dt = difftool
   st = status
   br = branch
   co = checkout
+
 [diff]
   tool = nvimdiff
 
 [difftool "nvimdiff"]
   cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 	path =
+
+[credential "https://dev.azure.com"]
+  useHttpPath = true
+
+[credential]
+  helper = /mnt/c/Users/nwilcox/AppData/Local/Programs/Git/mingw64/bin/git-credential-manager.exe
+
 [init]
 	defaultBranch = main
