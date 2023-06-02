@@ -1,7 +1,7 @@
 fpath+=($HOME/plugins/pure)
 path+=($HOME/p/dotfiles/bin/.local/scripts)
 
-#https://github.com/sindresorhus/pure#getting-started
+# https://github.com/sindresorhus/pure#getting-started
 autoload -U promptinit; promptinit
 prompt pure
 
