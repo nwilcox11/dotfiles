@@ -24,10 +24,10 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Tab Managment
-vim.keymap.set("n", "H", ":tabprevious<CR>")
-vim.keymap.set("n", "L", ":tabnext<CR>")
-vim.keymap.set("n", "tn", ":tabnew<CR>")
-vim.keymap.set("n", "ts", ":tab split<CR>")
+vim.keymap.set("n", "H", ":tabprevious<CR>", { silent = true })
+vim.keymap.set("n", "L", ":tabnext<CR>", { silent = true })
+vim.keymap.set("n", "tn", ":tabnew<CR>", { silent = true })
+vim.keymap.set("n", "ts", ":tab split<CR>", { silent = true })
 
 -- Split managment
 vim.keymap.set("n", "<Leader>h", ":wincmd h<CR>", { silent = true })
@@ -43,4 +43,4 @@ vim.keymap.set("n", "Q", "<nop>");
 
 -- We can run a Plenary test when building lua plugins.
 -- TODO: Can we map leader t to another command when the file type is different?
-vim.keymap.set("n", "<leader>t", "<Plug>PlenaryTestFile", { silent = true })
+-- vim.keymap.set("n", "<leader>t", "<Plug>PlenaryTestFile", { silent = true })

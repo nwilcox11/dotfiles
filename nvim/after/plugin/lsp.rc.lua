@@ -69,7 +69,6 @@ lsp.tsserver.setup {
 lsp.rust_analyzer.setup {}
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  focusable = false,
   border = "rounded",
 })
 
@@ -90,5 +89,6 @@ vim.diagnostic.config({
   signs = true,
   float = {
     source = "always",
+    border = "rounded",
   }
 })
