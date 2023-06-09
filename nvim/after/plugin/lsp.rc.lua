@@ -66,6 +66,11 @@ lsp.tsserver.setup {
   root_dir = lsp.util.root_pattern("package.json", "tsconfig.json"),
 }
 
+
+lsp.gopls.setup {
+  on_attach = on_attach,
+  root_dir = lsp.util.root_pattern("go.work", "go.mod", "git")
+}
 lsp.rust_analyzer.setup {}
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
