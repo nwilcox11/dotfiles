@@ -51,6 +51,12 @@ return require('packer').startup(function(use)
   }
   use { 'folke/tokyonight.nvim' }
 
+    -- markdown
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
   -- Local plugins
   use '~/plugins/show-me-errors.nvim'
   use '~/plugins/fnr.nvim'
