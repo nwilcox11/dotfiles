@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "tsserver", "denols", "lua_ls", "rust_analyzer", "gopls" },
+  ensure_installed = { "tsserver", "denols", "lua_ls", "rust_analyzer", "gopls", "pyright" },
 })
 
 local lsp = require("lspconfig")
@@ -8,7 +8,7 @@ local lsp = require("lspconfig")
 local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
-  if client.name == "tsserver" then
+  if client.name == "tsserver" or client.name == "gopls" then
     client.server_capabilities.document_formatting = false
   end
 
@@ -52,6 +52,8 @@ lsp.lua_ls.setup {
     },
   },
 }
+
+lsp.pyright.setup {}
 
 lsp.denols.setup {
   on_attach = on_attach,
