@@ -16,7 +16,9 @@ return require('packer').startup(function(use)
   -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-treesitter/playground' }
-  use {'nvim-treesitter/nvim-treesitter-context'}
+
+  -- TODO: This seems to cause neovim to crash
+  -- use {'nvim-treesitter/nvim-treesitter-context'}
 
   use { 'mbbill/undotree' }
 
@@ -51,7 +53,8 @@ return require('packer').startup(function(use)
   }
   use { 'folke/tokyonight.nvim' }
 
-    -- markdown
+  -- markdown
+  -- When editing .md files: If we get to a certain level of indentation (bulleted lists, or numbered lists) neovim crashes.
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
