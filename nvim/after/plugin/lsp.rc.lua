@@ -53,7 +53,10 @@ lsp.lua_ls.setup {
   },
 }
 
-lsp.pyright.setup {}
+lsp.pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 lsp.denols.setup {
   on_attach = on_attach,
