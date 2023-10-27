@@ -45,7 +45,7 @@ lsp.lua_ls.setup {
         library = vim.api.nvim_get_runtime_file("", true),
         checkThirdParty = false
       },
-      -- Do not send telemetry data containing a randomized but unique identifier
+      -- Do not send telemetry data containing a randomized but unique identifierlsp
       telemetry = {
         enable = false,
       },
@@ -71,11 +71,35 @@ lsp.tsserver.setup {
   root_dir = lsp.util.root_pattern("package.json", "tsconfig.json"),
 }
 
-
 lsp.gopls.setup {
   on_attach = on_attach,
   root_dir = lsp.util.root_pattern("go.work", "go.mod", "git")
 }
+
+-- TODO: setup --> https://github.com/joe-re/sql-language-server
+-- lsp.sqlls.setup {
+--   -- on_attach = on_attach,
+--   -- capabilities = capabilities
+-- }
+
+lsp.prismals.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  root_pattern = lsp.util.root_pattern(".git", "package.json"),
+}
+
+lsp.tailwindcss.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  root_pattern = lsp.util.root_pattern('tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.cjs', 'postcss.config.mjs', 'postcss.config.ts')
+}
+
+lsp.eslint.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+
 lsp.rust_analyzer.setup {}
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {

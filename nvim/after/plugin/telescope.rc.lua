@@ -1,7 +1,16 @@
 local tscope = require('telescope')
 local builtin = require('telescope.builtin')
+local telescopeConfig = require('telescope.config')
+
+-- Clone the default Telescope config
+local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+
+table.insert(vimgrep_arguments, "--hidden")
 
 tscope.setup {
+  defaults = {
+    vimgrep_arguments = vimgrep_arguments,
+  },
   pickers = {
     live_grep = {
       theme = "dropdown"
@@ -10,6 +19,12 @@ tscope.setup {
       theme = "dropdown",
       previewer = false,
     },
+    find_files = {
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+    },
+    buffers = {
+      theme = "dropdown"
+    }
   },
 }
 

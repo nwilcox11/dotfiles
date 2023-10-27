@@ -2,6 +2,7 @@ autoload -U promptinit; promptinit
 prompt pure
 
 path+=($HOME/github/dotfiles/bin/.local/scripts)
+path+=($HOME/projects/tskr)
 
 source $HOME/antigen.zsh
 
