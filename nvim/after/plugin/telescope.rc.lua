@@ -1,6 +1,7 @@
 local tscope = require('telescope')
 local builtin = require('telescope.builtin')
 local telescopeConfig = require('telescope.config')
+local actions = require('telescope.actions')
 
 -- Clone the default Telescope config
 local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
@@ -23,7 +24,15 @@ tscope.setup {
       find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
     },
     buffers = {
-      theme = "dropdown"
+      theme = "dropdown",
+      mappings = {
+        i = {
+          ["<c-d>"] = actions.delete_buffer,
+        },
+        n = {
+          ["<c-d>"] = actions.delete_buffer,
+        }
+      }
     }
   },
 }
