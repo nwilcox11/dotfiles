@@ -76,18 +76,6 @@ lsp.gopls.setup {
   root_dir = lsp.util.root_pattern("go.work", "go.mod", "git")
 }
 
--- TODO: setup --> https://github.com/joe-re/sql-language-server
--- lsp.sqlls.setup {
---   -- on_attach = on_attach,
---   -- capabilities = capabilities
--- }
-
-lsp.prismals.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_pattern = lsp.util.root_pattern(".git", "package.json"),
-}
-
 lsp.tailwindcss.setup{
   on_attach = on_attach,
   capabilities = capabilities,
@@ -98,7 +86,6 @@ lsp.eslint.setup{
   on_attach = on_attach,
   capabilities = capabilities,
 }
-
 
 lsp.rust_analyzer.setup {}
 
