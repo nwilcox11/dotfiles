@@ -23,26 +23,24 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
+local opts = { silent = true }
+
 -- Tab Managment
-vim.keymap.set("n", "H", ":tabprevious<CR>", { silent = true })
-vim.keymap.set("n", "L", ":tabnext<CR>", { silent = true })
-vim.keymap.set("n", "tn", ":tabnew<CR>", { silent = true })
-vim.keymap.set("n", "ts", ":tab split<CR>", { silent = true })
+vim.keymap.set("n", "H", ":tabprevious<CR>", opts)
+vim.keymap.set("n", "L", ":tabnext<CR>", opts)
+vim.keymap.set("n", "tn", ":tabnew<CR>", opts)
+vim.keymap.set("n", "ts", ":tab split<CR>", opts)
 
 -- Split managment
-vim.keymap.set("n", "<Leader>h", ":wincmd h<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>j", ":wincmd j<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>k", ":wincmd k<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>l", ":wincmd l<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>h", ":wincmd h<CR>", opts)
+vim.keymap.set("n", "<Leader>j", ":wincmd j<CR>", opts)
+vim.keymap.set("n", "<Leader>k", ":wincmd k<CR>", opts)
+vim.keymap.set("n", "<Leader>l", ":wincmd l<CR>", opts)
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex);
-vim.keymap.set({ "i", "n" }, "<C-c>", "<Esc>", { silent = true });
+vim.keymap.set({ "i", "n" }, "<C-c>", "<Esc>", opts);
 vim.keymap.set("n", "Q", "<nop>");
 
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { silent = true });
-
--- We can run a Plenary test when building lua plugins.
--- TODO: Can we map leader t to another command when the file type is different?
--- vim.keymap.set("n", "<leader>t", "<Plug>PlenaryTestFile", { silent = true })
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts);

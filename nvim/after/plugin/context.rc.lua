@@ -1,1 +1,2 @@
+-- This seems to be crashing nvim.
 -- require'treesitter-context'.setup{}
