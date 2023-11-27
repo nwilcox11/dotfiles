@@ -20,7 +20,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
   vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
   vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end
@@ -76,13 +75,13 @@ lsp.gopls.setup {
   root_dir = lsp.util.root_pattern("go.work", "go.mod", "git")
 }
 
-lsp.tailwindcss.setup{
+lsp.tailwindcss.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   root_pattern = lsp.util.root_pattern('tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.cjs', 'postcss.config.mjs', 'postcss.config.ts')
 }
 
-lsp.eslint.setup{
+lsp.eslint.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
