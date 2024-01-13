@@ -7,11 +7,12 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
   use { 'nvim-lualine/lualine.nvim' }
+  use { 'folke/trouble.nvim' }
 
   -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -52,7 +53,6 @@ return require('packer').startup(function(use)
     as = 'rose-pine',
   }
   use { 'folke/tokyonight.nvim' }
-
   -- markdown
   -- When editing .md files: If we get to a certain level of indentation (bulleted lists, or numbered lists) neovim crashes.
   use({
