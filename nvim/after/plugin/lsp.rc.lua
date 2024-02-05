@@ -86,7 +86,10 @@ lsp.eslint.setup {
   capabilities = capabilities,
 }
 
-lsp.rust_analyzer.setup {}
+lsp.rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",
