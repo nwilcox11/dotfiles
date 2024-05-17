@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
     as = 'rose-pine',
   }
   use { 'folke/tokyonight.nvim' }
+  use { "ellisonleao/gruvbox.nvim" }
   -- markdown
   -- When editing .md files: If we get to a certain level of indentation (bulleted lists, or numbered lists) neovim crashes.
   use({

@@ -87,7 +87,10 @@ lsp.eslint.setup {
 }
 
 lsp.rust_analyzer.setup {
-  on_attach = on_attach,
+  on_attach = function (client, bufnr)
+    vim.lsp.inlay_hint.enable(true)
+    on_attach(client, bufnr)
+  end,
   capabilities = capabilities,
 }
 
