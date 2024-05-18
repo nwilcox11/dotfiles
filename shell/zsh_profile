@@ -1,25 +1,26 @@
-autoload -U promptinit; promptinit
-prompt pure
+# Setup version control prompt 
+# https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh
+# vcs_info gets information from version control systems
+autoload -Uz vcs_info
+precmd() { vcs_info } 
 
-path+=($HOME/github/dotfiles/bin/.local/scripts)
-path+=($HOME/projects/tskr)
+zstyle ':vcs_info:git:*' formats '%b '
+setopt PROMPT_SUBST
+PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
 
-source $HOME/antigen.zsh
+# Path setup
+path+=($HOME/p/dotfiles/bin/.local/scripts)
 
-antigen bundle 'zsh-users/zsh-syntax-highlighting'
-antigen bundle 'zsh-users/zsh-autosuggestions'
-antigen apply
-
-zstyle :prompt:pure:git:stash show yesprompt pure
-
+# Env Variables
 export XDG_CONFIG_HOME=$HOME/.config
 export GOPATH=$HOME/go
 export PATH
 
+# Alias
 alias ll='ls -lG'
-
 alias tls='tmux ls'
 alias tas='tmux attach-session -t'
 alias tks='tmux kill-session -t'
 
+# Bindings
 bindkey -s ^f "tmux-sessionizer\n"
