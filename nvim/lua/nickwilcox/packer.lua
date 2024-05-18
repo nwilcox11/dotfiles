@@ -19,8 +19,7 @@ return require("packer").startup(function(use)
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use { "nvim-treesitter/playground" }
 
-  -- TODO: This seems to cause neovim to crash
-  -- use {"nvim-treesitter/nvim-treesitter-context"}
+  use {"nvim-treesitter/nvim-treesitter-context"}
 
   use { "mbbill/undotree" }
 
