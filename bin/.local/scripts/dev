@@ -1,21 +1,2 @@
 #!/usr/bin/env bash
-
-if [[ -d ~/.config/nvim ]]; then
-	rm -rf ~/.config/nvim
-fi
-ln -s $(pwd)/nvim ~/.config/nvim
-
-if [[ -f ~/.gitconfig ]]; then
-	rm ~/.gitconfig
-fi
-ln -s $(pwd)/gitconfig ~/.gitconfig
-
-if [[ -f ~/.tmux.conf ]]; then
-	rm ~/.tmux.conf
-fi
-ln -s $(pwd)/tmux/tmux.conf ~/.tmux.conf
-
-if [[ -f ~/.zsh_profile ]]; then
-	rm ~/.zsh_profile
-fi
-ln -s $(pwd)/shell/zsh_profile ~/.zsh_profile
+## TODO: Lets write a simple script to set up a new dev environment.

@@ -114,7 +114,7 @@ vim.diagnostic.config({
   underline = false,
   signs = true,
   float = {
-    source = "always",
+    source = true,
     border = "rounded",
   }
 })

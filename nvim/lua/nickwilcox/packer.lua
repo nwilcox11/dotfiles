@@ -1,32 +1,33 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- This file can be loaded by calling `lua require("plugins")` from your init.vim
 
 vim.cmd.packadd("packer.nvim")
 
-return require('packer').startup(function(use)
+return require("packer").startup(function(use)
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use "wbthomason/packer.nvim"
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.5',
-    requires = { { 'nvim-lua/plenary.nvim' } }
+    "nvim-telescope/telescope.nvim", tag = "0.1.5",
+    requires = { { "nvim-lua/plenary.nvim" } }
   }
 
-  use { 'nvim-lualine/lualine.nvim' }
-  use { 'folke/trouble.nvim' }
+  use { "nvim-lualine/lualine.nvim" }
+  use { "folke/trouble.nvim" }
+  use { "stevearc/oil.nvim" }
 
   -- Treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'nvim-treesitter/playground' }
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+  use { "nvim-treesitter/playground" }
 
   -- TODO: This seems to cause neovim to crash
-  -- use {'nvim-treesitter/nvim-treesitter-context'}
+  -- use {"nvim-treesitter/nvim-treesitter-context"}
 
-  use { 'mbbill/undotree' }
+  use { "mbbill/undotree" }
 
   -- git
   use {
-    'lewis6991/gitsigns.nvim',
-    'tpope/vim-fugitive',
+    "lewis6991/gitsigns.nvim",
+    "tpope/vim-fugitive",
   }
 
   -- Lsp
@@ -49,19 +50,16 @@ return require('packer').startup(function(use)
 
   -- Colors
   use {
-    'rose-pine/neovim',
-    as = 'rose-pine',
+    "rose-pine/neovim",
+    as = "rose-pine",
   }
-  use { 'folke/tokyonight.nvim' }
-  use { "ellisonleao/gruvbox.nvim" }
+
+  -- use { "folke/tokyonight.nvim" }
+  -- use { "ellisonleao/gruvbox.nvim" }
+
   -- markdown
-  -- When editing .md files: If we get to a certain level of indentation (bulleted lists, or numbered lists) neovim crashes.
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
-
-  -- Local plugins
-  use '~/plugins/show-me-errors.nvim'
-  use '~/plugins/fnr.nvim'
 end)
