@@ -1,26 +1,8 @@
--- Will probably replace this with nvim-spectre
--- https://github.com/nvim-pack/nvim-spectre
+-- TODO: Turn this into a key binding?
 
-local function split(s)
-  local out = {}
-  local delimiter = "|"
+-- Grep for search term with telescope
+-- Send results to quickfix list.
 
-  for match in (s..delimiter):gmatch("(.-)"..delimiter) do
-    table.insert(out, match)
-  end
-
-  return out
-end
-
-vim.api.nvim_create_user_command("Rename", function()
-  local input = vim.fn.input("Replace a with b: ", "")
-  local replace_list = split(input)
-
-  if #replace_list ~= 2 then
-    print("Please provide two | separated strings.")
-  else
-    vim.cmd(":cdo %s".."/" .. replace_list[1] .. "/" .. replace_list[2] .. "/g|w")
-  end
-end, {})
-
-vim.keymap.set("n", "<leader>rn", "<cmd>Rename<CR>", { silent = true })
+-- Run command:
+-- Run the search and replace on all matched items in the quickfix list.
+-- :cfdo %s/<search term>/<replace term>/g | update
