@@ -78,7 +78,8 @@ lsp.gopls.setup {
 lsp.tailwindcss.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  root_pattern = lsp.util.root_pattern('tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.cjs', 'postcss.config.mjs', 'postcss.config.ts')
+  filetypes = { "typescript", "typescriptreact", "templ", "svelte", "postcss", "astro", "html", "css" },
+  root_pattern = lsp.util.root_pattern('tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts')
 }
 
 lsp.eslint.setup {
