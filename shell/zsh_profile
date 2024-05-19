@@ -1,10 +1,16 @@
-# Setup version control prompt 
+# Setup version control prompt
 # https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh
 # vcs_info gets information from version control systems
 autoload -Uz vcs_info
-precmd() { vcs_info } 
+precmd() { vcs_info }
 
-zstyle ':vcs_info:git:*' formats '%b '
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '*'
+zstyle ':vcs_info:*' stagedstr '+'
+
+zstyle ':vcs_info:git:*' formats '%b%u%c '
+zstyle ':vcs_info:git:*' actionformats '%b%a%u%c '
+
 setopt PROMPT_SUBST
 PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
 
