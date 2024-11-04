@@ -53,6 +53,8 @@ return require('packer').startup(function(use)
     "L3MON4D3/LuaSnip",
   }
 
+  use { "nvim-pack/nvim-spectre" }
+
   -- Diagnostics
   use {
     "folke/trouble.nvim",
@@ -65,6 +67,7 @@ return require('packer').startup(function(use)
     as = 'rose-pine',
   }
   use { 'folke/tokyonight.nvim' }
+  use { "ellisonleao/gruvbox.nvim" }
 
   -- markdown
   use({
