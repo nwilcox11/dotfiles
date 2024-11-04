@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Setting node version to v14"
+
+nvm use v14

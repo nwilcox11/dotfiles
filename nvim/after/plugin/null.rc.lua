@@ -13,6 +13,7 @@ null.setup({
       filetypes = formatting_file_types
     }),
     -- Note: If eslint_d stops working, make sure project local eslint version, and eslint_d version are in sync.
-    diagnostics.eslint_d
+    -- diagnostics.eslint_d
+    diagnostics.eslint
   }
 })

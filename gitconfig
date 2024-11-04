@@ -12,6 +12,15 @@
 [pull]
 	rebase = true
 
+[http "https://github.com"]
+  sslVerify = false
+
+[http "https://dev.azure.com"]
+  sslVerify = false
+
+[http "https://tensar.visualstudio.com"]
+  sslVerify = false
+
 [alias]
   d = diff
   dt = difftool
@@ -21,6 +30,9 @@
 
 [diff]
   tool = nvimdiff
+
+[merge]
+  conflictstyle = diff3
 
 [difftool "nvimdiff"]
   cmd = nvim -d \"$LOCAL\" \"$REMOTE\"

@@ -1,5 +1,6 @@
 local tscope = require('telescope')
 local builtin = require('telescope.builtin')
+local actions = require('telescope.actions')
 
 tscope.setup {
   pickers = {
@@ -10,6 +11,17 @@ tscope.setup {
       theme = "dropdown",
       previewer = false,
     },
+    buffers = {
+      theme = "dropdown",
+      mappings = {
+        i = {
+          ["<c-d>"] = actions.delete_buffer,
+        },
+        n = {
+          ["<c-d>"] = actions.delete_buffer,
+        }
+      }
+    }
   },
 }
 
