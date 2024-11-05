@@ -6,7 +6,7 @@ title = ""
 
 [font]
 normal.family = "MesloLGS Nerd Font Mono"
-size = 14
+size = 16
 
 [keyboard]
  bindings = [
