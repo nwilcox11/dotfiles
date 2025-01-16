@@ -1,6 +1,7 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "tsserver", "denols", "lua_ls", "rust_analyzer", "gopls", "pyright" },
+  automatic_installation = false,
+  ensure_installed = { "denols", "lua_ls", "rust_analyzer", "gopls", "pyright" },
 })
 
 local lsp = require("lspconfig")
@@ -8,7 +9,7 @@ local lsp = require("lspconfig")
 local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
-  if client.name == "tsserver" or client.name == "gopls" then
+  if client.name == "ts_ls" or client.name == "gopls" then
     client.server_capabilities.document_formatting = false
   end
 
@@ -63,7 +64,7 @@ lsp.denols.setup {
   root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc", "deno_root"),
 }
 
-lsp.tsserver.setup {
+lsp.ts_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   single_file_support = false,
@@ -119,3 +120,18 @@ vim.diagnostic.config({
     border = "rounded",
   }
 })
+
+-- https://github.com/neovim/neovim/issues/30985#issuecomment-2447329525
+--
+-- Workaround to ignore this particular error in rust_analyzer.
+-- This may be fixed in neovim currently.
+-- TODO: Update neovim version.
+for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+    local default_diagnostic_handler = vim.lsp.handlers[method]
+    vim.lsp.handlers[method] = function(err, result, context, config)
+        if err ~= nil and err.code == -32802 then
+            return
+        end
+        return default_diagnostic_handler(err, result, context, config)
+    end
+end
