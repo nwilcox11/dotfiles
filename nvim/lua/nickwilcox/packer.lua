@@ -33,7 +33,6 @@ return require("packer").startup(function(use)
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
   }
 
   -- Completions
@@ -47,18 +46,11 @@ return require("packer").startup(function(use)
     "L3MON4D3/LuaSnip",
   }
 
-  -- Colors
-  use {
-    "rose-pine/neovim",
-    as = "rose-pine",
-  }
-
-  -- use { "folke/tokyonight.nvim" }
-  -- use { "ellisonleao/gruvbox.nvim" }
-
   -- markdown
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
+
+  use "~/p/plugins/assist.nvim"
 end)
