@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/nickwilcox/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/nickwilcox/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/nickwilcox/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/nickwilcox/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/nickwilcox/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/nickwilcox/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?.lua;/Users/nickwilcox/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?/init.lua;/Users/nickwilcox/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?.lua;/Users/nickwilcox/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/nickwilcox/.cache/nvim/packer_hererocks/2.1.1713773202/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["assist.nvim"] = {
+    loaded = true,
+    path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/assist.nvim",
+    url = "/Users/nickwilcox/p/plugins/assist.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -103,11 +108,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
-  },
-  ["fnr.nvim"] = {
-    loaded = true,
-    path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/fnr.nvim",
-    url = "/Users/nickwilcox/plugins/fnr.nvim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
@@ -149,6 +149,16 @@ _G.packer_plugins = {
     path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-treesitter-context"] = {
+    loaded = true,
+    path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+  },
+  ["oil.nvim"] = {
+    loaded = true,
+    path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/oil.nvim",
+    url = "https://github.com/stevearc/oil.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -169,20 +179,15 @@ _G.packer_plugins = {
     path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
-  ["show-me-errors.nvim"] = {
-    loaded = true,
-    path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/show-me-errors.nvim",
-    url = "/Users/nickwilcox/plugins/show-me-errors.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["tokyonight.nvim"] = {
+  ["trouble.nvim"] = {
     loaded = true,
-    path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
+    path = "/Users/nickwilcox/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
   },
   undotree = {
     loaded = true,

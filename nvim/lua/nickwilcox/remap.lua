@@ -39,7 +39,6 @@ vim.keymap.set("n", "<Leader>l", ":wincmd l<CR>", opts)
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex);
 vim.keymap.set({ "i", "n" }, "<C-c>", "<Esc>", opts);
 vim.keymap.set("n", "Q", "<nop>");
 

@@ -1,0 +1,15 @@
+[env]
+TERM = "xterm-256color"
+
+[window]
+title = ""
+
+[font]
+normal.family = "MesloLGS Nerd Font Mono"
+size = 16
+
+[keyboard]
+ bindings = [
+  # Ctrl+6 -> Ctrl+shift+6
+  { key = "Key6", mods= "Control", chars= "\u001e" }
+]
